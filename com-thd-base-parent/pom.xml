@@ -17,6 +17,8 @@
 		<module>../com-thd-base-utils</module>
 		<module>../com-thd-base-test</module>
 		<module>../com-thd-base-core</module>
+		<module>../com-thd-common-infrastructure</module>
+		<module>../com-thd-base-moduletemplate</module>
   </modules>
 	
 	
