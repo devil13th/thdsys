@@ -4,7 +4,7 @@
 	<groupId>com.thd.base</groupId>
 	<artifactId>com-thd-base-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<parent>
 		<groupId>com.thd.base</groupId>
 		<artifactId>com-thd-base-parent</artifactId>

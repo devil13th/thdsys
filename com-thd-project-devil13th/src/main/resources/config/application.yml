@@ -1,5 +1,6 @@
 debug: true
-
+ymlcfg: 
+  projectName: devil13th sys34
 #trace=true
 # 打开actuator 所有端点
 management:
