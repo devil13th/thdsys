@@ -19,6 +19,7 @@
 		<module>../com-thd-base-core</module>
 		<module>../com-thd-common-infrastructure</module>
 		<module>../com-thd-base-moduletemplate</module>
+		<module>../com-thd-module-note</module>
   </modules>
 	
 	
