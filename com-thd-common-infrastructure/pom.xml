@@ -3,7 +3,7 @@
   <groupId>com.thd.common</groupId>
   <artifactId>com-thd-common-infrastructure</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   
   <parent>
 		<groupId>com.thd.base</groupId>
