@@ -1,7 +1,0 @@
-
-*.DS_Store
-/target/
-/jar/
-/Servers
-/.metadata
-/RemoteSystemsTempFiles
