@@ -28,7 +28,7 @@ spring:
     suffix: .html
     encoding: UTF-8
     content-type: text/html
-    mode: HTML5
+    mode: HTML
   devtools: 
     restart: 
       exclude: static/**, public/**,template/** 
@@ -58,10 +58,10 @@ spring:
     hibernate: 
       ddl-auto: update
       format-sql: true
-    #properties:
-    #  hibernate:
-    #    format_sql: true
-    #    show_sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
 
   redis:
     # Redis服务器地址

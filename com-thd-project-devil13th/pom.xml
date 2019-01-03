@@ -15,15 +15,19 @@
 
 
 	<dependencies>
-
 	<dependency>
-		<groupId>com.thd.common</groupId>
-		<artifactId>com-thd-common-infrastructure</artifactId>
+		<groupId>com.thd.base</groupId>
+		<artifactId>com-thd-base-core</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
 	<dependency>
-		<groupId>com.thd.base</groupId>
-		<artifactId>com-thd-base-test</artifactId>
+		<groupId>com.thd.module</groupId>
+		<artifactId>com-thd-module-infrastructure</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>com.thd.module</groupId>
+		<artifactId>com-thd-module-test</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
 	<dependency>
@@ -31,11 +35,7 @@
 		<artifactId>com-thd-module-note</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
-	<dependency>
-		<groupId>com.thd.base</groupId>
-		<artifactId>com-thd-base-core</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
+	
 	</dependencies>
 
 	<build>
