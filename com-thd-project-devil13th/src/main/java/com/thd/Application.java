@@ -28,7 +28,7 @@ import com.thd.core.servlet.MyServlet;
 
 
 //囊括@SpringBootConfiguration @EnableAutoConfiguration  @ComponentScan   三个注释
-@SpringBootApplication(scanBasePackages = "com.thd")
+@SpringBootApplication(scanBasePackages = "com.thd.*")
 
 //开启自动配置功能  以前我们需要配置的东西,Spring Boot帮我们自动配置
 //如果有@SpringBootApplication 则下面注释可不写
@@ -37,7 +37,7 @@ import com.thd.core.servlet.MyServlet;
 //开启扫描@Component,@Controller,@Service,@Repository
 //如果有@SpringBootApplication(scanBasePackages = "com.thd") 下面的注释可不写
 //是以前的<context:component-scan>
-@ComponentScan(basePackages = {"com.thd.*"})
+//@ComponentScan(basePackages = {"com.thd.*"})
 
 //注明这个类是个配置文件 继承自@Configuration，二者功能也一致  和以前的xml配置是等效的
 //如果有@SpringBootApplication 则下面注释可不写
