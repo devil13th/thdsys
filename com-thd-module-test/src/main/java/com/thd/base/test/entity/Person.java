@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -35,6 +36,7 @@ public class Person implements Serializable{
     @Id
     @GenericGenerator(name="idGenerator", strategy="uuid") //这个是hibernate的注解/生成32位UUID
     @GeneratedValue(generator="idGenerator")
+    @Column(name="id",length=50)
     public String getId() {
         return id;
     }
