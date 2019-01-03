@@ -56,13 +56,4 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<!--可以用 java -jar 启动打包 -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>
