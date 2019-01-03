@@ -53,15 +53,22 @@ spring:
       autoCommit: true
         
   jpa: 
+    database: mysql
     #show-sql: true
     format-sql: true
     hibernate: 
       ddl-auto: update
       format-sql: true
+      naming: 
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        # 设置数据库引擎为 innerDB 不设置默认为MyISAM
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect 
+    
     properties:
       hibernate:
         format_sql: true
         show_sql: true
+        
 
   redis:
     # Redis服务器地址
