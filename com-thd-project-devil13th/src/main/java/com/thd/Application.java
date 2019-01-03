@@ -28,7 +28,7 @@ import com.thd.core.servlet.MyServlet;
 
 
 //囊括@SpringBootConfiguration @EnableAutoConfiguration  @ComponentScan   三个注释
-@SpringBootApplication(scanBasePackages = "com.thd.*")
+@SpringBootApplication(scanBasePackages = "com.thd")
 
 //开启自动配置功能  以前我们需要配置的东西,Spring Boot帮我们自动配置
 //如果有@SpringBootApplication 则下面注释可不写
