@@ -1,0 +1,10 @@
+com\thd\common\infrastructure\controller\SysDicPubController.class
+com\thd\common\infrastructure\dao\SysUserDao.class
+com\thd\common\infrastructure\pojo\SysUser.class
+com\thd\common\infrastructure\service\SysDicPubService.class
+com\thd\common\infrastructure\service\SysUserService.class
+com\thd\common\infrastructure\service\SysDicPubServiceImpl.class
+com\thd\common\infrastructure\dao\SysDicPubDao.class
+com\thd\common\infrastructure\controller\SysUserController.class
+com\thd\common\infrastructure\pojo\SysDicPub.class
+com\thd\common\infrastructure\service\SysUserServiceImpl.class

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: com-thd-base-test
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: wangl
+Implementation-Vendor-Id: com.thd.base
+Build-Jdk: 1.8.0_11
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/com-thd-base-test
+Created-By: Maven Integration for Eclipse
+
