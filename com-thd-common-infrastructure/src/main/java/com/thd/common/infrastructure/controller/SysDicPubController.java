@@ -36,6 +36,7 @@ public class SysDicPubController {
 	 */
 	@RequestMapping(value="/api",method=RequestMethod.GET)
 	public String api(){
+		System.out.println(1234);
 		ResponseBean rb = new ResponseBean();
 		return "/infrastructure/sysdicpub/api";
 	}
