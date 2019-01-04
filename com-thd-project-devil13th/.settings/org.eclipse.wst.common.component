@@ -4,19 +4,19 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="com-thd-common-infrastructure-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-common-infrastructure/com-thd-common-infrastructure">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="com-thd-base-test-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-base-test/com-thd-base-test">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="com-thd-module-note-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-module-note/com-thd-module-note">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="com-thd-base-core-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-base-core/com-thd-base-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="com-thd-base-utils-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-base-utils/com-thd-base-utils">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com-thd-module-infrastructure-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-module-infrastructure/com-thd-module-infrastructure">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com-thd-module-test-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-module-test/com-thd-module-test">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="com-thd-module-note-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-module-note/com-thd-module-note">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="com-thd-project-devil13th"/>
