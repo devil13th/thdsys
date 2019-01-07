@@ -16,21 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.thd.common.infrastructure.dao.SysUserDao;
-import com.thd.common.infrastructure.pojo.SysUser;
-import com.thd.common.infrastructure.service.SysUserService;
+import com.thd.common.infrastructure.dao.SysOrgDao;
+import com.thd.common.infrastructure.pojo.SysOrg;
+import com.thd.common.infrastructure.service.SysOrgService;
 import com.thd.core.bean.ResponseBean;
-import com.thd.utils.myutils.bean.QueryBeanForWeb;
 
 
 @Controller
-@RequestMapping(value="/infrastructure/sysUser")
-public class SysUserController {
+@RequestMapping(value="/infrastructure/sysOrg")
+public class SysOrgController {
 	
 	@Autowired
-	private SysUserService sysUserService;
+	private SysOrgService sysOrgService;
 	@Autowired
-	private SysUserDao sysUserDao;
+	private SysOrgDao sysOrgDao;
 	
 	/**
 	 * api介绍
@@ -39,88 +38,83 @@ public class SysUserController {
 	@RequestMapping(value="/api",method=RequestMethod.GET)
 	public String api(){
 		ResponseBean rb = new ResponseBean();
-		return "/infrastructure/sysuser/api";
+		return "/infrastructure/sysorg/api";
 	}
 	
 	/**
-	 * 查询所有SysUser
+	 * 查询所有SysOrg
 	 * @return
 	 */
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<ResponseBean> queryAllSysUser(){
+	public ResponseEntity<ResponseBean> queryAllSysOrg(){
 		ResponseBean rb = new ResponseBean();
-		List l = this.sysUserService.queryAllSysUser();
+		List l = this.sysOrgService.queryAllSysOrg();
 		rb.setResult(l);
 		return rb.success();
 	}
 	
 	/**
-	 * 查询所有SysUser
+	 * 查询所有SysOrg
 	 * @return
 	 */
 	@RequestMapping(value="/query",method=RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<ResponseBean> querySysUser(HttpServletRequest request){
+	public ResponseEntity<ResponseBean> querySysOrg(HttpServletRequest request){
 		ResponseBean rb = new ResponseBean();
-		//List l = sysUserDao.findAll();
-		
-		QueryBeanForWeb qb = new QueryBeanForWeb(request);
-		
-		
-		
+		//List l = sysOrgDao.findAll();
 		Map m = new HashMap();
-		if(request.getParameter("userName") != null){
-			qb.getConditions().put("userName", request.getParameter("userName"));
+		if(request.getParameter("orgName") != null){
+			m.put("orgName", request.getParameter("orgName"));
 		}
-		this.sysUserService.querySysUser(qb);
-		rb.setResult(qb);
+		List l = this.sysOrgService.querySysOrg(m);
+		rb.setResult(l);
 		return rb.success();
 	}
 	
 	/**
-	 * 根据ID查询SysUser对象
+	 * 根据ID查询SysOrg对象
 	 * @return
 	 */
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<ResponseBean> querySysPersonById(@PathVariable(name="id") String userId ){
 		ResponseBean rb = new ResponseBean();
-		SysUser u = this.sysUserService.querySysUserById(userId);
+		SysOrg u = this.sysOrgService.querySysOrgById(userId);
 		rb.setResult(u);
 		return rb.success();
 	}
 	
 	/**
-	 * 根据id删除用户
-	 * @param id 用户ID
+	 * 根据id删除组织机构
+	 * @param id 组织机构ID
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
 	@ResponseBody
-	public ResponseEntity<ResponseBean> deleteSysUserById(@PathVariable String id) throws Exception {
+	public ResponseEntity<ResponseBean> deleteSysOrgById(@PathVariable String id) throws Exception {
 		if(StringUtils.isEmpty(id)){
 			throw new Exception("id not be found");
 		}
-		if(this.sysUserService.querySysUserById(id) == null){
-			throw new Exception("not found SysUser id:[" + id + "]");
+		if(this.sysOrgService.querySysOrgById(id) == null){
+			throw new Exception("not found SysOrg id:[" + id + "]");
 		}
-		this.sysUserService.deleteSysUserById(id);
+		this.sysOrgService.deleteSysOrgById(id);
 		ResponseBean rb = new ResponseBean();
 		rb.setResult(null);
 		return rb.success();
 	}
 	
 	/**
-	 * 新增用户
-	 * @param sysUser SysUser对象
+	 * 新增组织机构
+	 * @param sysOrg SysOrg对象
 	 * @return
 	 */
 	@RequestMapping(value="/",method=RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<ResponseBean> saveSysUser(@RequestBody SysUser sysUser){
-		SysUser u = this.sysUserService.saveSysUser(sysUser);
+	public ResponseEntity<ResponseBean> saveSysOrg(@RequestBody SysOrg sysOrg){
+		SysOrg u = this.sysOrgService.saveSysOrg(sysOrg);
 		ResponseBean rb = new ResponseBean();
 		rb.setResult(u);
 		return rb.success();
@@ -128,20 +122,33 @@ public class SysUserController {
 	
 	
 	/**
-	 * 更新用户
-	 * @param sysUser SysUser对象
+	 * 更新组织机构
+	 * @param sysOrg SysOrg对象
 	 * @return
 	 */
 	@RequestMapping(value="/",method=RequestMethod.PUT)
 	@ResponseBody
-	public ResponseEntity<ResponseBean> updateSysUser(@RequestBody SysUser sysUser){
-		SysUser u = this.sysUserService.updateSysUser(sysUser);
+	public ResponseEntity<ResponseBean> updateSysOrg(@RequestBody SysOrg sysOrg){
+		SysOrg u = this.sysOrgService.updateSysOrg(sysOrg);
 		ResponseBean rb = new ResponseBean();
 		rb.setResult(u);
 		return rb.success();
 	}
 	
 	
-	
+	/**
+	 * 查询所有组织机构
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/queryOrgForSelect",method=RequestMethod.GET)
+	public ResponseEntity<ResponseBean> queryOrgForSelect(HttpServletRequest request,String orgName){
+		ResponseBean rb = new ResponseBean();
+		Map m = new HashMap();
+		m.put("orgName", orgName);
+		List l = this.sysOrgService.querySysOrg(m);
+		rb.setResult(l);	
+		return rb.success();	
+	};
 	
 }

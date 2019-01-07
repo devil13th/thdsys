@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>SysOrg</title>
+
+<link th:href="@{/infrastructure/css/sysUserApi.css}"  rel="stylesheet"/>
+
+
+<script th:inline="javascript">    
+	var ctx = [[@{/}]];  
+	
+	function queryAllUser(){
+		fetch(`${ctx}infrastructure/sysOrg/`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+		
+	}
+	
+	
+	function saveUser(){
+		eval("var person = " + document.getElementById("personInfoForSave").value);
+		fetch(`${ctx}infrastructure/sysOrg/`,{
+			method:"POST",
+			headers:{
+				Accept:"application/json;charset=UTF-8",
+				"Content-Type":"application/json;charset=UTF-8"
+			},
+			body:JSON.stringify(person)
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	
+	function updateUser(){
+		eval("var person = " + document.getElementById("personInfoForUpdate").value);
+		fetch(`${ctx}infrastructure/sysOrg/`,{
+			method:"PUT",
+			headers:{
+				Accept:"application/json;charset=UTF-8",
+				"Content-Type":"application/json;charset=UTF-8"
+			},
+			body:JSON.stringify(person)
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	function queryUserById(){
+		var pid = document.getElementById("pid").value;
+		fetch(`${ctx}infrastructure/sysOrg/${pid}`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	function queryUserByName(){
+		var pname = document.getElementById("pname").value;
+		fetch(`${ctx}infrastructure/sysOrg/query?orgName=${pname}`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	function deleteUserById(){
+		var pid = document.getElementById("pid").value;
+		fetch(`${ctx}infrastructure/sysOrg/${pid}`,{
+			method:"DELETE",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+</script>
+
+</head>
+<body id="body" >
+    
+<textarea id="result" style="width:100%;height:150px"></textarea>
+<input type="button" value="查询组织机构列表" onclick="queryAllUser()"/>
+
+| 
+输入ID<input type="text" id="pid" name="pid"/> 
+<input type="button" value="根据ID查询" onclick="queryUserById()"/> 
+<input type="button" value="根据ID删除" onclick="deleteUserById()"/>
+| 
+输入Name<input type="text" id="pname" name="pname"/> 
+<input type="button" value="根据Name查询" onclick="queryUserByName()"/> 
+ 
+
+
+<br/>
+<table width="100%"> 
+<tr>
+	<td width="50%" align="right">
+	<textarea id="personInfoForSave" style="width:100%;height:120px">
+{
+"userId":"zhangsan",
+"userName":"张三",
+"userAccount":"zhangsan",
+"userPassword":"123456",
+"companyName":"CCSE",
+"userMail":"zhangsan@ccsit.cn"
+}
+</textarea><br/>
+<input type="button" value="保存" onclick="saveUser()"/><br/>
+	</td>
+	<td width="50%" align="right">
+
+<textarea id="personInfoForUpdate" style="width:95%;height:120px">
+{
+"userId":"zhangsan",
+"userName":"张三",
+"userAccount":"zhangsan",
+"userPassword":"123456",
+"companyName":"CCSE",
+"userMail":"zhangsan@ccsit.cn"
+}
+</textarea><br/>
+<input type="button" value="修改" onclick="updateUser()"/><br/>	
+	</td>
+<tr/>
+<table>
+
+</body>
+
+</html>

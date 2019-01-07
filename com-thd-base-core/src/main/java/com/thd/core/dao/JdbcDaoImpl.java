@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.thd.core.bean.Page;
+import com.thd.utils.myutils.bean.QueryBean;
 @Repository
 public class JdbcDaoImpl implements JdbcDao{
 
@@ -58,4 +59,31 @@ public class JdbcDaoImpl implements JdbcDao{
 		Map r = this.jdbcTemplate.queryForMap(ctSql,params);
 		return Integer.parseInt(r.get("ct").toString());
 	}
+	
+	public void query(QueryBean queryBean){
+		Page p = null;
+		boolean hasPageInfo = 
+				queryBean.getCurrent() != null && 
+				queryBean.getCurrent() > 0 && 
+				queryBean.getPageSize() != null && 
+				queryBean.getPageSize() > 0;
+				
+				
+				
+		if(hasPageInfo){
+			p = new Page();
+			p.setCurrentPage(queryBean.getCurrent());
+			p.setPageSize(queryBean.getPageSize());
+		}
+		List l = this.query(
+				queryBean.getSql(), 
+				queryBean.getSqlParams() == null ? null : queryBean.getSqlParams().toArray(), 
+				p);
+		if(hasPageInfo){
+			queryBean.setMaxPage(p.getMaxPage());
+			queryBean.setTotal(p.getListSize());
+		}
+		queryBean.setResult(l);
+		
+	};
 }

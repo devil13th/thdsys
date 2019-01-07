@@ -14,6 +14,7 @@ import com.thd.common.infrastructure.dao.SysUserDao;
 import com.thd.common.infrastructure.pojo.SysUser;
 import com.thd.core.dao.JdbcDao;
 import com.thd.utils.myutils.MyStringUtils;
+import com.thd.utils.myutils.bean.QueryBean;
 
 @Service
 @Transactional
@@ -82,6 +83,29 @@ public class SysUserServiceImpl implements SysUserService {
 		
 		List r = this.jdbcDao.query(sql, params.toArray(), null);
 		return r;
+	};
+	
+	
+	public void querySysUser(QueryBean qb){
+		String sql = " select "
+				+ " user_id as userId,"
+				+ " user_name as userName,"
+				+ " user_account as userAccount,"
+				+ " user_password as userPassword,"
+				+ " company_name as companyName,"
+				+ " user_mail as userMail "
+				+ " from sys_user u "
+				+ " where 1=1 ";
 		
+		if(qb.getConditions().get("userName") != null && MyStringUtils.isNotEmpty(qb.getConditions().get("userName").toString())){
+			sql += " and (upper(user_name) like upper(?) or upper(user_account) like upper(?) or upper(user_mail) like upper(?))";
+			qb.getSqlParams().add("%" + qb.getConditions().get("userName").toString().trim() + "%");
+			qb.getSqlParams().add("%" + qb.getConditions().get("userName").toString().trim() + "%");
+			qb.getSqlParams().add("%" + qb.getConditions().get("userName").toString().trim() + "%");
+		}
+		
+		qb.setSql(sql);
+		
+		this.jdbcDao.query(qb);
 	};
 }

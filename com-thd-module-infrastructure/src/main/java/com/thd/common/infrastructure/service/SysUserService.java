@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.thd.common.infrastructure.pojo.SysUser;
+import com.thd.utils.myutils.bean.QueryBean;
 
 public interface SysUserService {
 	/**
@@ -44,4 +45,6 @@ public interface SysUserService {
 	 * @return
 	 */
 	public List querySysUser(Map m);
+	
+	public void querySysUser(QueryBean qb);
 }
