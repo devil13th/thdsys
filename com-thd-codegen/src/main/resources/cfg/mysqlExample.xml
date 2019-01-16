@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config>
+		<actionPackage>cn.thd.action.checklist</actionPackage>
+		<actionName>ChecklistAction</actionName>
+		<servicePackage>cn.thd.service.checklist</servicePackage>
+		<serviceName>ChecklistService</serviceName>
+		<pojoPackage>cn.thd.pojo.checklist</pojoPackage>
+		<tableName>检查批次</tableName>
+		<tableCode>checklist_impl_result</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/checklist</jspPath>
+		<nameSpace>checklist</nameSpace>
+		<urlActionName>checklist</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>checklist_impl_result</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>

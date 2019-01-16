@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+
+<config>
+		<actionPackage>com.thd.module.note.controller</actionPackage>
+		<actionName>ModNoteController</actionName>
+		<servicePackage>com.thd.module.note.service</servicePackage>
+		<serviceName>ModNoteService</serviceName>
+		<daoPackage>com.thd.module.note.dao</daoPackage>
+		<pojoPackage>com.thd.module.note.pojo</pojoPackage>
+		<tableName>记事内容</tableName>
+		<tableCode>mod_note_content</tableCode>
+		<generator>uuid.hex</generator>
+		<!-- 项目模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第一级目录) -->
+		<jspPath>modNoteContent</jspPath>
+		<!-- 小模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第二级目录) -->
+		<nameSpace>note</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_content</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<!-- 
+<config>
+		<actionPackage>com.thd.module.note.controller</actionPackage>
+		<actionName>ModNoteClassifyController</actionName>
+		<servicePackage>com.thd.module.note.service</servicePackage>
+		<serviceName>ModNoteClassifyService</serviceName>
+		<daoPackage>com.thd.module.note.dao</daoPackage>
+		<pojoPackage>com.thd.module.note.pojo</pojoPackage>
+		<tableName>记事</tableName>
+		<tableCode>mod_note_list</tableCode>
+		<generator>uuid.hex</generator>
+		
+		<jspPath>modNoteClassify</jspPath>
+
+		<nameSpace>note</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_list</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<config>
+		<actionPackage>com.thd.module.note.controller</actionPackage>
+		<actionName>ModNoteClassifyController</actionName>
+		<servicePackage>com.thd.module.note.service</servicePackage>
+		<serviceName>ModNoteClassifyService</serviceName>
+		<daoPackage>com.thd.module.note.dao</daoPackage>
+		<pojoPackage>com.thd.module.note.pojo</pojoPackage>
+		<tableName>记事分类</tableName>
+		<tableCode>mod_note_classify</tableCode>
+		<generator>uuid.hex</generator>
+		
+		<jspPath>modNoteClassify</jspPath>
+		
+		<nameSpace>note</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_classify</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+ -->

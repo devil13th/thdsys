@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+		<actionPackage>com.thd.action.example</actionPackage>
+		<actionName>ExampleAction</actionName>
+		<servicePackage>com.thd.service.example</servicePackage>
+		<serviceName>ExampleService</serviceName>
+		<pojoPackage>com.thd.pojo</pojoPackage>
+		<tableName>用户信息</tableName>
+		<tableCode>user_info</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/tt</jspPath>
+		<nameSpace>tt</nameSpace>
+		<urlActionName>tt</urlActionName>
+
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/codegenexam</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>user_info</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>

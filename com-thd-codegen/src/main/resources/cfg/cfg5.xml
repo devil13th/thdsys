@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+		<actionPackage>com.thd.action.worksurveylist</actionPackage>
+		<servicePackage>com.thd.service.worksurveylist</servicePackage>
+		<pojoPackage>com.thd.pojo</pojoPackage>
+		<tableName>检验信息</tableName>
+		<tableCode>WORK_SURVEY_LIST</tableCode>
+		<generator>assigned</generator>
+		<columns>
+			<dburl>jdbc:oracle:thin:@172.26.200.100:1521:oradb</dburl>
+			<usrname>dsmis</usrname>
+			<usrpwd>dsmis123456</usrpwd>
+			<dbtable>work_survey_list</dbtable>
+			<dbtype>oracle</dbtype>
+		</columns>
+</config>

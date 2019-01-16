@@ -1,0 +1,252 @@
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||  devil13th 代码生成器使用手册  ||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+一.cfg.xml配置文件说明
+
+   代码生成器可以根据一张表生成SSH结构的CRUD操作相关的所有文件，包括Action、Service、配置文件、POJO、HBM文件、列表页面、编辑页面。
+
+   cfg.xml是代码生成器的基础配置文件,通过该配置文件进行代码生成工作。
+
+   cfg.xml有两种配置方式，一种是通过配置数据库表所有字段来生成代码，一种是配置数据库表的表名来生成代码。
+	
+
+	方式一：配置数据库表的字段，如下配置
+
+
+	<?xml version="1.0"?>
+	<config>
+		<!-- Action类所在包名(不可省略) -->
+		<actionPackage>com.thd.action.example</actionPackage>
+		<!-- Action类的类名(可以省略)，如不配置该标签则为[表名的驼峰式命名] 例如表名为user_info 则 Action类的名字为UserInfoAction -->
+		<actionName>ExampleAction</actionName>
+		<!-- Service接口及实现类所在包名(不可省略) -->
+		<servicePackage>com.thd.service.example</servicePackage>
+		<!-- Service接口和实现类的类名(可以省略)，如不配置该标签则为[表名的驼峰式命名] 例如表名为user_info 则 Service接口和实现类的名字分别为UserInfoService和UserInfoServiceImpl -->
+		<serviceName>ExampleService</serviceName>
+		<!-- POJO 类所在包名(不可省略) -->
+		<pojoPackage>com.thd.pojo</pojoPackage>
+		<!-- 表的中文名(不可省略) -->
+		<tableName>用户信息</tableName>
+		<!-- 表名(不可省略) -->
+		<tableCode>user_info</tableCode>
+		<!-- 主键生成策略 常用的有 assigned(指派) uuid.hex(自动生成32位字符串) -->
+		<generator>assigned</generator>
+		<!-- JSP文件所在文件目录(可以省略)，如不配置该标签则默认pages/[表名的驼峰式命名]  例如表名为user_info 则 namespace为userInfo   注：不要带"/"(模板中已带有"/")-->
+		<jspPath>pages/tt</jspPath>
+		<!-- Strut2配置文件struts.xml中Action的namespace(可以省略)，如不配置该标签则为[表名的驼峰式命名] 例如表名为user_info 则 namespace为userInfo  注：不要带"/"(模板中已带有"/")  -->
+		<nameSpace>tt</nameSpace>
+		<!-- Strut2配置文件struts.xml中Action的name(可以省略)，如不配置该标签则为[表名的驼峰式命名] 例如表名为user_info 则 urlActionName为userInfo -->
+		<urlActionName>tt</urlActionName>
+		<!-- 表的字段信息(不可忽略) -->
+		<columns>
+			<column>
+				<!-- 字段英文名(不可省略) -->
+				<columnCode>user_name</columnCode>
+				<!-- 是否主键(可以省略)，如果省略则认为该字段非主键字段，该标签只要值不为空就视为主键 -->
+				<columnIspk>true</columnIspk>
+				<!-- 字段中文名(不可省略) -->
+				<columnName>用户名</columnName>
+				<!-- 字段类型(不可省略) -->
+				<columnType>java.lang.Integer</columnType>
+				<!-- 字段备注(可以省略) -->
+				<columnDesc>用户名REMARK</columnDesc>
+			</column>
+			<column>
+				<columnCode>user_pwd</columnCode>
+				<columnName>密码</columnName>
+				<columnType>java.lang.String</columnType>
+				<columnDesc>密码REMARK</columnDesc>
+			</column>
+			<column>
+				<columnCode>user_bir</columnCode>
+				<columnName>出生日期</columnName>
+				<columnType>java.util.Date</columnType>
+				<columnDesc>出生日期REMARK</columnDesc>
+			</column>
+			<column>
+				<columnCode>user_age</columnCode>
+				<columnName>年龄(Float)</columnName>
+				<columnType>java.lang.Float</columnType>
+				<columnDesc>年龄REMARK</columnDesc>
+			</column>			
+			<column>
+				<columnCode>user_money</columnCode>
+				<columnName>金额(Double)</columnName>
+				<columnType>java.lang.Double</columnType>
+				<columnDesc>金额REMARK</columnDesc>
+			</column>
+			<column>
+				<columnCode>is_valid</columnCode>
+				<columnName>是否有效</columnName>
+				<columnType>java.lang.String</columnType>
+				<columnDesc>1:有效 0:无效</columnDesc>
+			</column>
+		</columns>
+	</config>
+
+
+
+	方式二：配置数据库表的英文名，如下配置
+
+	<?xml version="1.0"?>
+	<config>
+		<!-- 第一层标签的使用参见 方式一的注解 -->
+		<actionPackage>com.thd.action.cardinfo</actionPackage>
+		<servicePackage>com.thd.service.cardinfo</servicePackage>
+		<pojoPackage>com.thd.pojo</pojoPackage>
+		<tableName>工资卡信息</tableName>
+		<tableCode>CARD_INFO</tableCode>
+		<generator>assigned</generator>
+		<columns>
+			<!-- 数据库连接字符串(不可省略) -->
+			<dburl>jdbc:mysql://localhost:3306/codegenexam</dburl>
+			<!-- 数据库用户名(不可省略) -->
+			<usrname>root</usrname>
+			<!-- 数据库密码(不可省略) -->
+			<usrpwd>123456</usrpwd>
+			<!-- 表英文名称(不可省略) -->
+			<dbtable>CARD_INFO</dbtable>
+			<!-- 数据库种类(不可省略) 目前仅支持mysql、oracle、sqlserver -->
+			<dbtype>mysql</dbtype>
+		</columns>
+	</config>
+
+二.配置参数说明
+	
+	======= 基础信息 =======
+
+	---[actionPackage]---
+	必填
+	action所在包
+
+	---[actionName]:
+	action的类名(可无此标签，如果无此标签则用驼峰式表名+Action作为action的名字)
+	
+	---[servicePackage]:
+	必填
+	service所在包(接口类、实现类)
+	
+	---[serviceName]:
+	service的类名(可无此标签，如果无此标签则用驼峰式表名+Service作为service的名字,驼峰式表名+ServiceImpl作为service实现名字)
+
+	---[pojoPackage]:
+	必填
+	pojo所在包
+
+	---[tableName]:
+	必填
+	表中文名
+
+	---[tableCode]:
+	必填
+	数据库表名称
+
+	---[generator]:
+	必填
+	数据库生成策略 uuid.hex | assigned
+
+	---[jspPath]:
+	jsp所在位置，用于action中的返回页面路径(可无此标签，默认pages/+驼峰式表名)
+	例如：action中的方法中
+	public String ${cfg.tableCodeForProperty}List(){
+		try{
+			this.logger.info("${cfg.tableCodeForProperty}List()");
+			this.setForwardPage("/${cfg.jspPath}/${cfg.tableCodeForProperty}List.jsp");
+			return this.SUCCESS;
+		}catch(Exception e){
+			e.printStackTrace();
+			return this.err(e);
+		}
+	}
+
+	---[nameSpace]:
+	action配置文件中的nameSpace以及页面链接(可无此标签，默认驼峰式表名)
+	例如：
+	<package name="${cfg.tableCodeForProperty}" extends="myDefault" namespace="/${cfg.nameSpace}">
+		<action name="${cfg.urlActionName}" class="${cfg.actionPackage}.${cfg.actionName}">
+			<result>${get}forwardPage}</result>
+		</action>
+	</package>
+
+	---[urlActionName]:
+	进入action中的地址中的action名称(可无此标签，默认驼峰式表名)
+	例如：
+	<package name="${cfg.tableCodeForProperty}" extends="myDefault" namespace="/${cfg.nameSpace}">
+		<action name="${cfg.urlActionName}" class="${cfg.actionPackage}.${cfg.actionName}">
+			<result>${get}forwardPage}</result>
+		</action>
+	</package>
+	
+	======= 方式一字段信息 =======
+
+	---[columnCode]:
+	数据库字段名
+
+	---[columnIspk]:
+	是否是主键(目前不支持复合主键)
+
+	---[columnName]:
+	字段中文名
+
+	---[columnType]:
+	数据类型(java)
+
+	---[columnDesc]:
+	字段备注
+	
+	======= 方式二字段信息 =======
+
+	---[dburl]:
+	数据库地址
+	
+	---[usrname]:
+	数据库用户名
+
+	---[usrpwd]:
+	数据库密码
+
+	---[dbtable]:
+	数据库表名
+
+	---[dbtype]:
+	数据库种类 oracle mysql sqlserver
+	
+
+三.模板说明
+
+	pojo包                  ${cfg.pojoPackage}                       com.thd.user
+	pojo类名                ${cfg.tableCodeForClass}                 UserList
+	pojo中文表名            ${cfg.tableName}                         用户信息
+	pojo英文表名            ${cfg.tableCode}                         user_list
+	pojo实例化对象名称      ${cfg.tableCodeForProperty}              userList
+	
+	字段英文名              ${cfg.pkColumn.columnCode}               u_id
+	主键属性名              ${cfg.pkColumn.columnCodeForProperty}    uId 
+	主键字段大写            ${cfg.pkColumn.columnNameUpper}          U_ID
+	主键类型                ${cfg.pkColumn.columnType}               java.lang.String
+	字段中文名              ${cfg.pkColumn.columnName}               用户ID
+	主键策略                ${cfg.pkColumn.generator}                assigned
+	主键备注                ${cfg.pkColumn.columnDesc}               用户的ID
+
+	字段英文名              ${col.columnCode}                        u_name
+	字段属性名              ${col.columnCodeForProperty}             uName
+	字段大写                ${col.columnNameUpper}                   U_ID
+	字段类型                ${col.columnType}                        java.lang.String
+	字段中文名              ${col.columnName}                        用户名称
+	字段备注                ${col.columnDesc}			 用户名称记录下用户的用户名
+	
+	action包名              ${cfg.actionPackage}                     com.thd.action.userinfo
+	action类名              ${cfg.actionName}                        UserInfoAction
+
+
+	service包名             ${cfg.servicePackage}                    com.thd.service.userinfo
+	service名称             ${cfg.serviceName}                       UserInfoService
+	service属性名           ${cfg.serviceNameForProperty};           userInfoService
+
+	jsp所在文件夹           ${cfg.jspPath}                           pages/userinfo
+
+
+
+
+

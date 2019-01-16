@@ -10,7 +10,6 @@ public class QueryBean {
 	public static String DESC = "DESC";
 	//正序
 	public static String ASD = "ASC";
-	
 	//排序规则 desc asc
 	private String sortOrder;
 	//排序列
@@ -24,9 +23,9 @@ public class QueryBean {
 	//总页数
 	private Integer maxPage;
 	//查询条件(Map)
-	private Map<String,String> conditions;
-	//sql语句
-	private String sql;
+	private Map<String,String> queryParams;
+	//sql语句 不进行序列化
+	private transient String sql;
 	//sql占位参数
 	private List sqlParams ;
 		
@@ -38,7 +37,6 @@ public class QueryBean {
 		
 	}
 	
-
 	
 	public String getSortOrder() {
 		return sortOrder;
@@ -80,15 +78,15 @@ public class QueryBean {
 		this.current = current;
 	}
 
-	public Map<String, String> getConditions() {
-		if(this.conditions == null){
-			this.conditions = new HashMap<String,String>();
+	public Map<String, String> getQueryParams() {
+		if(this.queryParams == null){
+			this.queryParams = new HashMap<String,String>();
 		}
-		return conditions;
+		return queryParams;
 	}
 
-	public void setConditions(Map<String, String> conditions) {
-		this.conditions = conditions;
+	public void setQueryParams(Map<String, String> queryParams) {
+		this.queryParams = queryParams;
 	}
 
 	public String getSql() {

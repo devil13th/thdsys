@@ -56,23 +56,20 @@ public class SysUserController {
 	}
 	
 	/**
-	 * 查询所有SysUser
-	 * @return
+	 * 查询SysUser 使用QueryBeanForWeb封装分页排序和查询条件
+	 * current : 当前页  整数  非必填
+	 * pageSize : 每页行数 整数 非必填
+	 * sort : 排序列名称  字段名称 非必填
+	 * order : 排序规则 ASC DESC 非必填
+	 * queryParams : 查询条件  json字符串  非必填
+	 * @return 
 	 */
 	@RequestMapping(value="/query",method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<ResponseBean> querySysUser(HttpServletRequest request){
 		ResponseBean rb = new ResponseBean();
-		//List l = sysUserDao.findAll();
-		
+		//封装 分页 排序 查询条件到QueryBeanForWeb对象
 		QueryBeanForWeb qb = new QueryBeanForWeb(request);
-		
-		
-		
-		Map m = new HashMap();
-		if(request.getParameter("userName") != null){
-			qb.getConditions().put("userName", request.getParameter("userName"));
-		}
 		this.sysUserService.querySysUser(qb);
 		rb.setResult(qb);
 		return rb.success();
@@ -91,26 +88,7 @@ public class SysUserController {
 		return rb.success();
 	}
 	
-	/**
-	 * 根据id删除用户
-	 * @param id 用户ID
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
-	@ResponseBody
-	public ResponseEntity<ResponseBean> deleteSysUserById(@PathVariable String id) throws Exception {
-		if(StringUtils.isEmpty(id)){
-			throw new Exception("id not be found");
-		}
-		if(this.sysUserService.querySysUserById(id) == null){
-			throw new Exception("not found SysUser id:[" + id + "]");
-		}
-		this.sysUserService.deleteSysUserById(id);
-		ResponseBean rb = new ResponseBean();
-		rb.setResult(null);
-		return rb.success();
-	}
+	
 	
 	/**
 	 * 新增用户
@@ -141,7 +119,26 @@ public class SysUserController {
 		return rb.success();
 	}
 	
-	
+	/**
+	 * 根据id删除用户
+	 * @param id 用户ID
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+	@ResponseBody
+	public ResponseEntity<ResponseBean> deleteSysUserById(@PathVariable String id) throws Exception {
+		if(StringUtils.isEmpty(id)){
+			throw new Exception("id not be found");
+		}
+		if(this.sysUserService.querySysUserById(id) == null){
+			throw new Exception("not found SysUser id:[" + id + "]");
+		}
+		this.sysUserService.deleteSysUserById(id);
+		ResponseBean rb = new ResponseBean();
+		rb.setResult(null);
+		return rb.success();
+	}
 	
 	
 }

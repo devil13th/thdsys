@@ -42,6 +42,9 @@ public class SysUserServiceImpl implements SysUserService {
 		this.sysUserDao.deleteById(id);
 	};
 	public SysUser saveSysUser(SysUser sysUser){
+		if(sysUser == null){
+			throw new RuntimeException("SysUser can not be null" );
+		}
 		return this.sysUserDao.save(sysUser);
 	};
 	public SysUser updateSysUser(SysUser sysUser){
@@ -69,6 +72,7 @@ public class SysUserServiceImpl implements SysUserService {
 				+ " user_account as user_account,"
 				+ " user_password as user_password,"
 				+ " company_name as company_name,"
+				+ " company_name as company_name,"
 				+ " user_mail as user_mail "
 				+ " from sys_user u "
 				+ " where 1=1 ";
@@ -93,15 +97,17 @@ public class SysUserServiceImpl implements SysUserService {
 				+ " user_account as userAccount,"
 				+ " user_password as userPassword,"
 				+ " company_name as companyName,"
+				+ " user_birthday as userBirthday,"
+				+ " user_tel as userTel,"
 				+ " user_mail as userMail "
 				+ " from sys_user u "
 				+ " where 1=1 ";
 		
-		if(qb.getConditions().get("userName") != null && MyStringUtils.isNotEmpty(qb.getConditions().get("userName").toString())){
+		if(qb.getQueryParams().get("userName") != null && MyStringUtils.isNotEmpty(qb.getQueryParams().get("userName").toString())){
 			sql += " and (upper(user_name) like upper(?) or upper(user_account) like upper(?) or upper(user_mail) like upper(?))";
-			qb.getSqlParams().add("%" + qb.getConditions().get("userName").toString().trim() + "%");
-			qb.getSqlParams().add("%" + qb.getConditions().get("userName").toString().trim() + "%");
-			qb.getSqlParams().add("%" + qb.getConditions().get("userName").toString().trim() + "%");
+			qb.getSqlParams().add("%" + qb.getQueryParams().get("userName").toString().trim() + "%");
+			qb.getSqlParams().add("%" + qb.getQueryParams().get("userName").toString().trim() + "%");
+			qb.getSqlParams().add("%" + qb.getQueryParams().get("userName").toString().trim() + "%");
 		}
 		
 		qb.setSql(sql);

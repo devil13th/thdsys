@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<config>
+		<actionPackage>cn.thd.action.checklist</actionPackage>
+		<actionName>bsSysDicAction</actionName>
+		<servicePackage>cn.thd.service</servicePackage>
+		<serviceName>BsSysDicService</serviceName>
+		<pojoPackage>cn.thd.pojo</pojoPackage>
+		<tableName>系统字典</tableName>
+		<tableCode>BS_SYS_DIC</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/bsSysDic</jspPath>
+		<nameSpace>bsSysDic</nameSpace>
+		<urlActionName>bsSysDic</urlActionName>
+
+		<columns>
+			<dburl>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.1.4.22)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=10.1.4.23)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=10.1.4.24)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=ssmis1)))</dburl>
+			<usrname>ccsssmis1</usrname>
+			<usrpwd>ssmisdba1</usrpwd>
+			<dbtable>BS_SYS_DIC</dbtable>
+			<dbtype>oracle</dbtype>
+		</columns>
+</config>

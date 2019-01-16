@@ -48,15 +48,15 @@ public class ExceptionHandlerController {
 		logger.info(" 错误已被被拦截 ,错误信息如下 ");
 		e.printStackTrace();
 		ResponseBean rb = new ResponseBean();
-		Map<String,String> m = new HashMap<String,String>();
-		m.put("status","failure");
-		m.put("message",e.getMessage());
+		//Map<String,String> m = new HashMap<String,String>();
+		//m.put("status","failure");
+		//m.put("message",e.getMessage());
 		
 		
 		rb.setE(e);
-		rb.setResult(m);
+		//rb.setResult(m);
 		rb.setHttpStatus(HttpStatus.CREATED);
-		
+		rb.setErrMessage(e.getMessage());
 		
 		
 		

@@ -1,0 +1,45 @@
+
+
+================================================ 模板中变量说明 ============================================
+pojo包     ${cfg.pojoPackage}   com.thd.user
+pojo类名   ${cfg.tableCodeForClass}    UserList
+pojo中文表名   ${cfg.tableName}    用户信息
+pojo英文表名   ${cfg.tableCode}    user_list
+pojo实例化对象名称   ${cfg.tableCodeForProperty}    userList
+
+主键属性名 ${cfg.pkColumn.columnCodeForProperty}  uId 
+主键属性驼峰 ${cfg.pkColumn.columnCodeForClass} UId
+主键类型   ${cfg.pkColumn.columnType} java.lang.String
+字段中文名   ${cfg.pkColumn.columnName}  用户ID
+主键字段大写  ${cfg.pkColumn.columnNameUpper} U_ID
+字段英文名   ${cfg.pkColumn.columnCode} u_id
+主键策略 ${cfg.pkColumn.generator}
+主键备注   ${cfg.pkColumn.columnDesc}
+
+字段英文名 ${col.columnCode}  u_name
+字段中文名 ${col.columnName}  用户名称
+字段属性名 ${col.columnCodeForProperty}   uName
+字段属性驼峰 ${col.columnCodeForClass} UName
+字段类型   ${col.columnType} java.lang.String
+字段备注   ${col.columnDesc} 
+字段数据类型(数据库中)  ${col.columnDataType}   mysql: varchar|date|datetime...  oracle:VARCHAR2|DATE
+字段长度  ${col.columnDataLength} 50
+
+service包名 ${cfg.servicePackage}
+service名称 ${cfg.serviceName}
+service名称驼峰 ${cfg.serviceNameForProperty}
+action包名 ${cfg.actionPackage}
+action名称 ${cfg.actionName} 
+dao包名 ${cfg.daoPackage}
+
+类名 ${cfg.tableCodeForClass}
+表名大写 ${cfg.tableNameUpper}
+类setter set${cfg.tableCodeForClass}
+类getter get${cfg.tableCodeForClass}
+
+
+子模块名 (也是页面模板位置) ${cfg.jspPath}
+模块名称 (也是页面模板位置) ${cfg.nameSpace}
+${cfg.urlActionName}
+
+	

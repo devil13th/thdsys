@@ -46,6 +46,11 @@ public class JdbcDaoImpl implements JdbcDao{
 		}
 	}
 	
+	public List<Map<String,Object>> query(String sql){
+		logger.info("execute query SQL : " + sql);
+		return this.query(sql, null,null,null);
+	}
+	
 	public int queryCount(String sql,Object[] params){
 		String ctSql = "select count(1) as ct from (" + sql + ") as result";
 		System.out.println("[" + this.getClass().getName() + "] execute queryCount() : " + ctSql);

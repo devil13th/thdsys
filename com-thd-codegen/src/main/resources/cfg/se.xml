@@ -1,0 +1,1026 @@
+<?xml version="1.0"?>
+
+
+<config>
+		<actionPackage>com.thd.module.note.controller</actionPackage>
+		<actionName>ModNoteClassifyController</actionName>
+		<servicePackage>com.thd.module.note.service</servicePackage>
+		<serviceName>ModNoteClassifyService</serviceName>
+		<daoPackage>com.thd.module.note.dao</daoPackage>
+		<pojoPackage>com.thd.module.note.pojo</pojoPackage>
+		<tableName>记事分类</tableName>
+		<tableCode>mod_note_classify</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>modNoteClassify</jspPath>
+		<nameSpace>note</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_classify</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+
+<!--
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>笔记分类</tableName>
+		<tableCode>mod_note_classify</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_classify</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>个人天计划</tableName>
+		<tableCode>se_day_plan</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_day_plan</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+<config>
+		<actionPackage>cn.thd.action.common</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>CommonService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>功能字典</tableName>
+		<tableCode>sys_dic_function</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_dic_function</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.common</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>CommonService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>流程信息</tableName>
+		<tableCode>sys_dic_process_step</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_dic_process_step</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.common</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>commonService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>流程信息</tableName>
+		<tableCode>sys_dic_process</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_dic_process</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>seService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>项目文档</tableName>
+		<tableCode>se_project_doc</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_project_doc</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.common</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>commonService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>标准文档字典</tableName>
+		<tableCode>sys_dic_standard_doc</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_dic_standard_doc</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>seService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>附件</tableName>
+		<tableCode>se_attach</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_attach</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>seService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>会议记录</tableName>
+		<tableCode>se_meeting_record</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_meeting_record</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>会议</tableName>
+		<tableCode>se_meeting</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_meeting</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.plan</pojoPackage>
+		<tableName>计划总结</tableName>
+		<tableCode>plan_summary</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>plan_summary</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>角色权限关系</tableName>
+		<tableCode>se_map_role_auth</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_map_role_auth</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>角色与菜单关系</tableName>
+		<tableCode>se_map_role_menu</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_map_role_menu</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>权限字典</tableName>
+		<tableCode>se_auth</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_auth</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>系统菜单</tableName>
+		<tableCode>se_menu</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_menu</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>用户角色关系</tableName>
+		<tableCode>se_map_user_role</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_map_user_role</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>系统角色</tableName>
+		<tableCode>se_role</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_role</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+<config>
+		<actionPackage>cn.thd.action.common</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>CommonService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>系统日历</tableName>
+		<tableCode>sys_day</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_day</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>CommonService</serviceName>
+		<pojoPackage>cn.thd.pojo.common</pojoPackage>
+		<tableName>定时器列表</tableName>
+		<tableCode>sys_timer_list</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_timer_list</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.vita</actionPackage>
+		<actionName>VitaAction</actionName>
+		<servicePackage>cn.thd.service.vita</servicePackage>
+		<serviceName>VitaService</serviceName>
+		<pojoPackage>cn.thd.pojo.vita</pojoPackage>
+		<tableName>工作经历</tableName>
+		<tableCode>vita_work_his</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/vita</jspPath>
+		<nameSpace>vita</nameSpace>
+		<urlActionName>vita</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>vita_work_his</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeProcessService</serviceName>
+		<pojoPackage>cn.thd.pojo.process</pojoPackage>
+		<tableName>执行人信息</tableName>
+		<tableCode>se_proc_performer</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/process</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_proc_performer</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeProcessService</serviceName>
+		<pojoPackage>cn.thd.pojo.process</pojoPackage>
+		<tableName>执行人信息</tableName>
+		<tableCode>se_proc_performer</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/process</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_proc_performer</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>ProcessService</serviceName>
+		<pojoPackage>cn.thd.pojo.process</pojoPackage>
+		<tableName>任务流程信息</tableName>
+		<tableCode>se_proc_task</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_proc_task</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SysService</serviceName>
+		<pojoPackage>cn.thd.pojo.process</pojoPackage>
+		<tableName>工作列表</tableName>
+		<tableCode>se_work_list</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_work_list</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SysService</serviceName>
+		<pojoPackage>cn.thd.pojo.process</pojoPackage>
+		<tableName>任务流程信息</tableName>
+		<tableCode>se_proc_task</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_proc_task</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SysService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>系统取号</tableName>
+		<tableCode>sys_no</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_no</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵缺陷</tableName>
+		<tableCode>se_trace_defect_repair</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_defect_repair</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵缺陷</tableName>
+		<tableCode>se_trace_defect</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_defect</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>项目人员信息</tableName>
+		<tableCode>se_map_project_user</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_map_project_user</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>人员奖惩记录</tableName>
+		<tableCode>se_user_reward_amerce</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_user_reward_amerce</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>用户关系</tableName>
+		<tableCode>se_map_user</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_map_user</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>待办任务</tableName>
+		<tableCode>se_trace_task</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_task</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>公共组件</tableName>
+		<tableCode>se_pub_module</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_pub_module</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>用户日志</tableName>
+		<tableCode>se_person_log</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_person_log</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.checklist</actionPackage>
+		<actionName>ChecklistAction</actionName>
+		<servicePackage>cn.thd.service.checklist</servicePackage>
+		<serviceName>ChecklistService</serviceName>
+		<pojoPackage>cn.thd.pojo.plan</pojoPackage>
+		<tableName>计划信息</tableName>
+		<tableCode>plan_item</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/checklist</jspPath>
+		<nameSpace>checklist</nameSpace>
+		<urlActionName>checklist</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>plan_item</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.checklist</actionPackage>
+		<actionName>ChecklistAction</actionName>
+		<servicePackage>cn.thd.service.checklist</servicePackage>
+		<serviceName>ChecklistService</serviceName>
+		<pojoPackage>cn.thd.pojo.checklist</pojoPackage>
+		<tableName>检查批次</tableName>
+		<tableCode>checklist_impl_batch</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/checklist</jspPath>
+		<nameSpace>checklist</nameSpace>
+		<urlActionName>checklist</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>checklist_impl_batch</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.common</actionPackage>
+		<actionName>CommonAction</actionName>
+		<servicePackage>cn.thd.service.common</servicePackage>
+		<serviceName>CommonService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>系统公共字典</tableName>
+		<tableCode>checklist</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/common</jspPath>
+		<nameSpace>common</nameSpace>
+		<urlActionName>common</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>checklist</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>项目信息</tableName>
+		<tableCode>se_project_info</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_project_info</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>项目风险</tableName>
+		<tableCode>se_risk</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_risk</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵记事</tableName>
+		<tableCode>se_trace_note</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_note</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵属性值</tableName>
+		<tableCode>se_trace_value_string</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_value_string</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵属性值</tableName>
+		<tableCode>se_trace_value_text</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_value_text</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵属性值</tableName>
+		<tableCode>se_trace_value_string</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_value_string</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>SeService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>矩阵属性</tableName>
+		<tableCode>se_trace_key</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_trace_key</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>seService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>跟踪矩阵树</tableName>
+		<tableCode>se_requirement_trace</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_requirement_trace</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>seService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>会议记录,缺陷,备忘</tableName>
+		<tableCode>se_meeting_record</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_meeting_record</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+<config>
+		<actionPackage>cn.thd.action.se</actionPackage>
+		<actionName>SeAction</actionName>
+		<servicePackage>cn.thd.service.se</servicePackage>
+		<serviceName>seService</serviceName>
+		<pojoPackage>cn.thd.pojo.se</pojoPackage>
+		<tableName>项目日志</tableName>
+		<tableCode>se_day_note</tableCode>
+		<generator>assigned</generator>
+		<jspPath>pages/se</jspPath>
+		<nameSpace>se</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/devil13th</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>se_day_note</dbtable>
+			<dbtype>mysql</dbtype>
+		</columns>
+</config>
+-->
+
+

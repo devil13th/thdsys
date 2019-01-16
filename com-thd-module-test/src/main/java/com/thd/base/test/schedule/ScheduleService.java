@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduleService {
 	Logger log = LoggerFactory.getLogger(this.getClass());
-	@Scheduled(cron="0 * * * * *")
+	//@Scheduled(cron="0 * * * * *")
 	public void hello(){
 		log.info("hello");
 	};
