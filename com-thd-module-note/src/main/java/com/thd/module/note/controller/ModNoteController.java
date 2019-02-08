@@ -291,8 +291,8 @@ public class ModNoteController {
 	@ResponseBody
 	public ResponseEntity<ResponseBean> queryRoot(){
 		ResponseBean rb = new ResponseBean();
-		ModNoteClassify root = this.modNoteService.queryRoot();
-		rb.setResult(root);
+		List roots = this.modNoteService.queryRoot();
+		rb.setResult(roots);
 		return rb.success();
 	}
 	

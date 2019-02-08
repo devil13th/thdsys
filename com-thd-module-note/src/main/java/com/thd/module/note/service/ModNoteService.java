@@ -6,6 +6,7 @@ import com.thd.module.note.pojo.ModNoteClassify;
 import com.thd.module.note.pojo.ModNoteContent;
 import com.thd.module.note.pojo.ModNoteList;
 import com.thd.utils.myutils.bean.QueryBean;
+import com.thd.utils.myutils.bean.TreeNodeForAntd;
 
 public interface ModNoteService {
 	// ----------------------------- mod_note_content ------------------------- //
@@ -135,6 +136,7 @@ public interface ModNoteService {
 	
 	//-------------------------------- 树形目录相关内容------------------------
 	
+	
 	/**
 	 * 根据树形代码获取下级子节点
 	 * @param code 树形代码
@@ -171,5 +173,5 @@ public interface ModNoteService {
 	 * 查询根节点
 	 * @return
 	 */
-	public ModNoteClassify queryRoot();
+	public List queryRoot();
 }

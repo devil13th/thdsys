@@ -1,6 +1,5 @@
 package com.thd.common.infrastructure.pojo;
 
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import org.hibernate.annotations.GenericGenerator;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -22,7 +23,7 @@ public class SysUser implements java.io.Serializable {
 	//PK  用户ID
 	@Id
 	@GenericGenerator(name = "idGeneratorForSysUser", strategy = "assigned")  
-	@GeneratedValue(generator = "idGeneratorForSysUser")
+	@GeneratedValue(generator = "idGeneratorForSysUser") 
 	@Column(name="user_id" ,length=50)
 	private java.lang.String userId;
 	

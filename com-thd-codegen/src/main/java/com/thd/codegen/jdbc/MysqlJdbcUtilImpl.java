@@ -15,7 +15,7 @@ public class MysqlJdbcUtilImpl extends JdbcUtilImpl {
 		super(uname, upwd, url,schema);
 		
 		this.driver = "com.mysql.jdbc.Driver";
-		
+		//this.driver = "om.mysql.cj.jdbc.Driver";
 		this.dBTypeMap.put("int", "java.lang.Integer");
 		this.dBTypeMap.put("varchar", "java.lang.String");
 		this.dBTypeMap.put("date", "java.util.Date");

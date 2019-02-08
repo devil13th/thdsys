@@ -2,6 +2,32 @@
 
 
 <config>
+		<actionPackage>com.thd.common.infrastructure.controller</actionPackage>
+		<actionName>SysDicPubController</actionName>
+		<servicePackage>com.thd.common.infrastructure.service</servicePackage>
+		<serviceName>SysDicPubService</serviceName>
+		<daoPackage>com.thd.common.infrastructure.dao</daoPackage>
+		<pojoPackage>com.thd.common.infrastructure.pojo</pojoPackage>
+		<tableName>公共字典</tableName>
+		<tableCode>sys_dic_pub</tableCode>
+		<generator>uuid.hex</generator>
+		<!-- 项目模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第一级目录) -->
+		<jspPath>sysDicPub</jspPath>
+		<!-- 小模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第二级目录) -->
+		<nameSpace>infrastructure</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/thd?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_dic_pub</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<!-- 
+<config>
 		<actionPackage>com.thd.module.note.controller</actionPackage>
 		<actionName>ModNoteController</actionName>
 		<servicePackage>com.thd.module.note.service</servicePackage>
@@ -11,9 +37,7 @@
 		<tableName>记事内容</tableName>
 		<tableCode>mod_note_content</tableCode>
 		<generator>uuid.hex</generator>
-		<!-- 项目模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第一级目录) -->
 		<jspPath>modNoteContent</jspPath>
-		<!-- 小模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第二级目录) -->
 		<nameSpace>note</nameSpace>
 		<urlActionName>se</urlActionName>
 
@@ -26,7 +50,6 @@
 			<schema>thd</schema>
 		</columns>
 </config>
-<!-- 
 <config>
 		<actionPackage>com.thd.module.note.controller</actionPackage>
 		<actionName>ModNoteClassifyController</actionName>

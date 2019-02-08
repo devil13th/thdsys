@@ -390,16 +390,15 @@ public class ModNoteServiceImpl implements ModNoteService {
 		
 	};
 	
-	public ModNoteClassify queryRoot(){
-		String sql = " select classify_id from mod_note_classify where classify_tree_code = 'root' ";
+	public List queryRoot(){
+		String sql = " select "
+				+ " CLASSIFY_ID as CLASSIFY_ID,"
+				+ " CLASSIFY_NAME as CLASSIFY_NAME, "
+				+ " IS_LEAF as IS_LEAF "
+				+ " from mod_note_classify t "
+				+ " where classify_tree_code = 'root' ";
 		List l = this.jdbcDao.query(sql);
-		if(MyListUtils.isNotEmpty(l)){
-			Map m = (Map)(l.get(0));
-			String id = m.get("classify_id").toString();
-			return this.queryModNoteClassifyById(id);
-		}else{
-			return null;
-		}
+		return l;
 	};
 
 }

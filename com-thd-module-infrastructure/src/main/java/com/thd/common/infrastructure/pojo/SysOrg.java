@@ -20,7 +20,7 @@ public class SysOrg implements Serializable {
     }
 	@Id
 	@GenericGenerator(name = "assignedGenerator", strategy = "assigned")  
-	@GeneratedValue(generator = "assignedGenerator")     
+	@GeneratedValue(generator = "assignedGenerator") 
 	@Column(name="org_id",length=50)
 	private String orgId;
 	@Column(name="org_code",length=50)

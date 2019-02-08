@@ -1,12 +1,12 @@
 package com.thd.utils.myutils.bean;
 
+import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 
 import com.google.gson.Gson;
 /**
@@ -28,15 +28,9 @@ public class QueryBeanForWeb extends QueryBean {
 		Gson gson = new Gson();
 		
 		
-		//如果存在queryBean字符串
-		if(request.getParameter("queryBean") != null){
-			try{
-				QueryBean qb = gson.fromJson(request.getParameter("queryBean"),QueryBean.class);
-				BeanUtils.copyProperties(qb, this);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
+		
+		
+		
 		if(request.getParameter("current") != null){
 			try{
 				int current = Integer.parseInt(request.getParameter("current"));
@@ -60,13 +54,14 @@ public class QueryBeanForWeb extends QueryBean {
 			this.setSortOrder(request.getParameter("sortOrder"));
 		}
 		
-		if(request.getParameter("queryParams") != null){
-			
-			try{
-				Map queryParams = gson.fromJson(request.getParameter("queryParams"), Map.class);
-				this.setQueryParams(queryParams);
-			}catch(Exception e){
-				logger.error(" json format err ! ... ");
+		
+		//除分页信息以外的信息汇总成Map<String,String>的数据格式,暂不支持相同名称的key(后面覆盖前面)
+		Enumeration<String> keys = request.getParameterNames();
+		String notDealName = "current,pageSize,sortColumn,sortOrder,";
+		while(keys.hasMoreElements()){
+			String name = keys.nextElement();
+			if(notDealName.indexOf(name) == -1){
+				this.getQueryParams().put(name, request.getParameter(name));
 			}
 		}
 	}
