@@ -3,7 +3,6 @@
   <groupId>com.thd.module</groupId>
   <artifactId>com-thd-module-test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
   <parent>
 		<groupId>com.thd.base</groupId>
 		<artifactId>com-thd-base-parent</artifactId>

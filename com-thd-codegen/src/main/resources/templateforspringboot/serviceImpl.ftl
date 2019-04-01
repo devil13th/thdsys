@@ -41,6 +41,22 @@ public class ${cfg.tableCodeForClass}ServiceImpl implements ${cfg.tableCodeForCl
 	public void delete${cfg.tableCodeForClass}ById(String id){
 		this.${cfg.tableCodeForProperty}Dao.deleteById(id);
 	};
+	public void delete${cfg.tableCodeForClass}Batch(String ids){
+		if(MyStringUtils.isEmpty(ids)){
+			throw new RuntimeException("ids not be found");
+		}
+		String[] idsArray = ids.split(",");
+		for(int i = 0 , j = idsArray.length ; i < j ; i++){
+			String id = idsArray[i];
+			if(MyStringUtils.isNotEmpty(id)){
+				if(this.query${cfg.tableCodeForClass}ById(id) == null){
+					throw new RuntimeException("not found ${cfg.tableCodeForClass} id:[" + id + "]");
+				}
+				this.delete${cfg.tableCodeForClass}ById(id);
+			}
+		}
+		
+	};
 	public ${cfg.tableCodeForClass} save${cfg.tableCodeForClass}(${cfg.tableCodeForClass} ${cfg.tableCodeForProperty}){
 		if(${cfg.tableCodeForProperty} == null){
 			throw new RuntimeException("${cfg.tableCodeForClass} can not be null" );
@@ -70,8 +86,17 @@ public class ${cfg.tableCodeForClass}ServiceImpl implements ${cfg.tableCodeForCl
 	public void query${cfg.tableCodeForClass}(QueryBean qb){
 		String sql = "select "+
 			" t.${cfg.pkColumn.columnCodeForUpper} as ${cfg.pkColumn.columnCodeForUpper}, " + //0  ${cfg.pkColumn.columnName} 
+		
 		<#list cfg.columnList as col> 
-			" t.${col.columnCodeForUpper} as ${col.columnCodeForUpper}<#if col_has_next>,</#if> " + //${col_index} ${col.columnName} 			
+			//${col_index} ${col.columnName}
+			<#if col.columnDataType=="date" >
+			  " date_format(t.${col.columnCodeForUpper},'%Y-%m-%d') as ${col.columnCodeForUpper} " 
+			<#elseif col.columnDataType=="datetime" >
+			  " date_format(t.${col.columnCodeForUpper},'%Y-%m-%d %H:%i:%S') as ${col.columnCodeForUpper} " 
+			<#else>
+			  " t.${col.columnCodeForUpper} as ${col.columnCodeForUpper} "
+			</#if>
+			<#if col_has_next>+","</#if>  + 
 		</#list>
 			
 			" from ${cfg.tableCodeForUpper} t  where 1=1 ";
@@ -96,6 +121,28 @@ public class ${cfg.tableCodeForClass}ServiceImpl implements ${cfg.tableCodeForCl
 		</#if>
 		</#list>
 			
+		
+		//处理和排序分页
+		if(qb.getSortColumn() != null){
+			String sortColumn = qb.getSortColumn().toString();
+			if(MyStringUtils.isNotEmpty(sortColumn)){
+				if(!sortColumn.toUpperCase().equals("undefined".toUpperCase())){
+					sql += " order by " + sortColumn;
+					
+					if(qb.getSortOrder() != null){
+						String sortOrder = qb.getSortOrder().toString();
+						if(MyStringUtils.isNotEmpty(sortOrder)){
+							
+							if(sortOrder.toUpperCase().equals("descend".toUpperCase())){
+								sql += " desc " ;
+							}else{
+								sql += " asc " ;
+							}		
+						}
+					}
+				}
+			}
+		}
 		
 		
 		

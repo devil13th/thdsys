@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Thread Test Index</title>
+
+<script th:inline="javascript">     
+	var ctx = [[@{/}]];  
+
+	
+	
+	function beginProducerThread(name){
+		fetch(`${ctx}threadTest/beginProduct/${name}`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			return res.text();
+		}).then(function(text){
+			alert(text)
+		})
+	}
+	
+	
+	function beginConsumerThread(name){
+		fetch(`${ctx}threadTest/beginConsumer/${name}`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			return res.text();
+		}).then(function(text){
+			alert(text)
+		})
+	}
+	
+	function exit(){
+		fetch(`${ctx}threadTest/exit`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			return res.text();
+		}).then(function(text){
+			alert(text)
+		})
+		
+	}
+	
+</script>
+
+</head>
+<body> 
+<input type="button" onclick="beginProducerThread('a1')" value="启动生产者"/>
+<input type="button" onclick="beginConsumerThread('b1')" value="启动消费者"/>
+
+<input type="button" onclick="exit()" value="全部停止"/>
+</body>
+</html>

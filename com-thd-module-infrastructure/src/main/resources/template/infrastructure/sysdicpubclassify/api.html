@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>SysDicPubClassify</title>
+
+<script th:inline="javascript">    
+	var ctx = [[@{/}]];  
+	
+	function queryAllSysDicPubClassify(){
+		fetch(`${ctx}infrastructure/sysDicPub/`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+		
+	}
+	
+	
+	function saveSysDicPubClassify(){
+		eval("var person = " + document.getElementById("personInfoForSave").value);
+		fetch(`${ctx}infrastructure/sysDicPub/`,{
+			method:"POST",
+			headers:{
+				Accept:"application/json;charset=UTF-8",
+				"Content-Type":"application/json;charset=UTF-8"
+			},
+			body:JSON.stringify(person)
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	
+	function updateSysDicPubClassify(){
+		eval("var person = " + document.getElementById("personInfoForUpdate").value);
+		fetch(`${ctx}infrastructure/sysDicPub/`,{
+			method:"PUT",
+			headers:{
+				Accept:"application/json;charset=UTF-8",
+				"Content-Type":"application/json;charset=UTF-8"
+			},
+			body:JSON.stringify(person)
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	function querySysDicPubClassifyById(){
+		var pid = document.getElementById("pid").value;
+		fetch(`${ctx}infrastructure/sysDicPub/${pid}`,{
+			method:"GET",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+	
+	
+	function deleteSysDicPubClassifyById(){
+		var pid = document.getElementById("pid").value;
+		fetch(`${ctx}infrastructure/sysDicPub/${pid}`,{
+			method:"DELETE",
+			headers:{
+				Accept:"application/json;charset=UTF-8"
+			}
+		}).then(function(res){
+			console.log(res);
+			return res.json();
+		}).then(function(res){
+			console.log(res);
+			document.getElementById("result").value = JSON.stringify(res);
+		});
+	}
+</script>
+
+</head>
+<body id="body" >
+    
+<textarea id="result" style="width:100%;height:150px"></textarea>
+<input type="button" value="查询列表" onclick="queryAllSysDicPubClassify()"/>
+&nbsp;&nbsp;
+|&nbsp;&nbsp;
+输入ID<input type="text" id="pid" name="pid"/> 
+<input type="button" value="根据ID查询" onclick="querySysDicPubClassifyById()"/> 
+<input type="button" value="根据ID删除" onclick="deleteSysDicPubClassifyById()"/>
+
+ 
+
+
+<br/>
+<table width="100%"> 
+<tr>
+	<td width="50%" align="right">
+	<textarea id="personInfoForSave" style="width:100%;height:120px">
+{
+"classifyId":"xx",
+"classifyName":"CLASSIFY_NAME",
+"classifyDesc":"CLASSIFY_DESC",
+"creTime":"CRE_TIME",
+"creUser":"CRE_USER",
+"modTime":"MOD_TIME",
+"modUser":"MOD_USER"
+}
+</textarea><br/>
+<input type="button" value="保存" onclick="saveSysDicPubClassify()"/><br/>
+	</td>
+	<td width="50%" align="right">
+
+<textarea id="personInfoForUpdate" style="width:95%;height:120px">
+{
+"classifyId":"xx",
+"classifyName":"CLASSIFY_NAME",
+"classifyDesc":"CLASSIFY_DESC",
+"creTime":"CRE_TIME",
+"creUser":"CRE_USER",
+"modTime":"MOD_TIME",
+"modUser":"MOD_USER"
+}
+</textarea><br/>
+<input type="button" value="修改实体" onclick="updateSysDicPubClassify()"/><br/>	
+	</td>
+<tr/>
+<table>
+
+</body>
+
+</html>

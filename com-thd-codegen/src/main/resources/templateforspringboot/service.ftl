@@ -24,6 +24,11 @@ public interface ${cfg.tableCodeForClass}Service {
 	 */
 	public void delete${cfg.tableCodeForClass}ById(${cfg.pkColumn.columnType} id);
 	/**
+	 * 根据ID删除${cfg.tableName},多个id用","隔开
+	 * @param ids
+	 */
+	public void delete${cfg.tableCodeForClass}Batch(String ids);
+	/**
 	 * 保存${cfg.tableName}
 	 * @param ${cfg.tableCodeForProperty} ${cfg.tableCodeForClass}对象
 	 */

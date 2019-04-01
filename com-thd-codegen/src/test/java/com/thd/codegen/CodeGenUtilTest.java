@@ -183,6 +183,32 @@ public class CodeGenUtilTest extends TestCase {
 	
 	
 	
+	@Test
+	public void testmakeCodeByTemplateForReact(){
+		CodeGenUtilImpl u = new CodeGenUtilImpl();
+		try{
+			String cfgXmlConfigPath = "D://work//java//thdsys//com-thd-codegen//src//main//resources//cfg//cfgForSpringBoot.xml";
+			String templateFolderPath = "D://work//java//thdsys//com-thd-codegen//src//main//resources//templateforreact//";
+			String targetFolder = "D://cg//";
+			
+			CodeGenConfig cfg = u.xmlToConfig(cfgXmlConfigPath);
+			
+			u.makeCodeByTemplate(cfg,templateFolderPath + "view//Form.ftl",targetFolder + cfg.getTableCodeForClass() + "Form.js");
+			u.makeCodeByTemplate(cfg,templateFolderPath + "view//List.ftl",targetFolder + cfg.getTableCodeForClass() + "List.js");
+			u.makeCodeByTemplate(cfg,templateFolderPath + "view//Search.ftl",targetFolder + cfg.getTableCodeForClass() + "Search.js");
+			u.makeCodeByTemplate(cfg,templateFolderPath + "Model.ftl",targetFolder + cfg.getTableCodeForClass() + "Model.js");
+			u.makeCodeByTemplate(cfg,templateFolderPath + "Router.ftl",targetFolder + cfg.getTableCodeForClass() + "Router.js");
+			u.makeCodeByTemplate(cfg,templateFolderPath + "Service.ftl",targetFolder + cfg.getTableCodeForClass() + "Service.js");
+			u.makeCodeByTemplate(cfg,templateFolderPath + "Cfg.ftl",targetFolder + "Cfg.js");
+
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	
 	
 	

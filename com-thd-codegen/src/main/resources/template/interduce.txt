@@ -33,7 +33,7 @@ action名称 ${cfg.actionName}
 dao包名 ${cfg.daoPackage}
 
 类名 ${cfg.tableCodeForClass}
-表名大写 ${cfg.tableNameUpper}
+表名大写 ${cfg.tableCodeForUpper}
 类setter set${cfg.tableCodeForClass}
 类getter get${cfg.tableCodeForClass}
 

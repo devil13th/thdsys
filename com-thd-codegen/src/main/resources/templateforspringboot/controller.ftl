@@ -22,7 +22,7 @@ import com.thd.utils.myutils.bean.QueryBeanForWeb;
 
 
 @Controller
-@RequestMapping(value="/${cfg.nameSpace}/${cfg.jspPath}")
+@RequestMapping(value="/${cfg.nameSpace}/${cfg.urlActionName}")
 public class ${cfg.tableCodeForClass}Controller {
 	
 	@Autowired
@@ -131,6 +131,22 @@ public class ${cfg.tableCodeForClass}Controller {
 			throw new Exception("not found ${cfg.tableCodeForClass} id:[" + id + "]");
 		}
 		this.${cfg.serviceNameForProperty}.delete${cfg.tableCodeForClass}ById(id);
+		ResponseBean rb = new ResponseBean();
+		rb.setResult(null);
+		return rb.success();
+	}
+	
+	/**
+	 * 根据id删除${cfg.tableCodeForClass} 多个id用","隔开
+	 * @param id ${cfg.tableCodeForClass}对象ID
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/delete${cfg.tableCodeForClass}Batch/{ids}",method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<ResponseBean> delete${cfg.tableCodeForClass}Batch(@PathVariable String ids) throws Exception {
+		
+		this.${cfg.serviceNameForProperty}.delete${cfg.tableCodeForClass}Batch(ids);
 		ResponseBean rb = new ResponseBean();
 		rb.setResult(null);
 		return rb.success();

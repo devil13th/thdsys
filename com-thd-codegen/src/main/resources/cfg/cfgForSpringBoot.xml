@@ -2,6 +2,99 @@
 
 
 <config>
+		<actionPackage>com.thd.module.note.controller</actionPackage>
+		<actionName>ModNoteContentController</actionName>
+		<servicePackage>com.thd.module.note.service</servicePackage>
+		<serviceName>ModNoteContentService</serviceName>
+		<daoPackage>com.thd.module.note.dao</daoPackage>
+		<pojoPackage>com.thd.module.note.pojo</pojoPackage>
+		<tableName>记事内容</tableName>
+		<tableCode>mod_note_content</tableCode>
+		<generator>uuid.hex</generator>
+		<!-- 是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第一级目录) -->
+		<jspPath>reactCodegenTest</jspPath>
+		<!-- 项目模块名称     用于Controller中的访问地址,项目模块目录 -->		
+		<nameSpace>note</nameSpace>
+		<!-- 小模块名称     用于Controller中的访问地址,功能模块目录  -->
+		<urlActionName>modNoteContent</urlActionName>
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/thd?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_content</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<!-- 
+<config>
+		<actionPackage>com.thd.module.note.controller</actionPackage>
+		<actionName>ModNoteListController</actionName>
+		<servicePackage>com.thd.module.note.service</servicePackage>
+		<serviceName>ModNoteListService</serviceName>
+		<daoPackage>com.thd.module.note.dao</daoPackage>
+		<pojoPackage>com.thd.module.note.pojo</pojoPackage>
+		<tableName>记事</tableName>
+		<tableCode>mod_note_list</tableCode>
+		<generator>uuid.hex</generator>
+		<jspPath>reactCodegenTest</jspPath>
+		<nameSpace>note</nameSpace>
+		<urlActionName>modNoteList</urlActionName>
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/thd?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>mod_note_list</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<config>
+		<actionPackage>com.thd.common.infrastructure.controller</actionPackage>
+		<actionName>ReactCodegenTestController</actionName>
+		<servicePackage>com.thd.common.infrastructure.service</servicePackage>
+		<serviceName>ReactCodegenTestService</serviceName>
+		<daoPackage>com.thd.common.infrastructure.dao</daoPackage>
+		<pojoPackage>com.thd.common.infrastructure.pojo</pojoPackage>
+		<tableName>代码生成器测试</tableName>
+		<tableCode>react_codegen_test</tableCode>
+		<generator>assigned</generator>
+		<jspPath>reactCodegenTest</jspPath>
+		<nameSpace>infrastructure</nameSpace>
+		<urlActionName>se</urlActionName>
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/thd?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>react_codegen_test</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<config>
+		<actionPackage>com.thd.common.infrastructure.controller</actionPackage>
+		<actionName>SysDicPubClassifyController</actionName>
+		<servicePackage>com.thd.common.infrastructure.service</servicePackage>
+		<serviceName>SysDicPubClassifyService</serviceName>
+		<daoPackage>com.thd.common.infrastructure.dao</daoPackage>
+		<pojoPackage>com.thd.common.infrastructure.pojo</pojoPackage>
+		<tableName>公共字典分类</tableName>
+		<tableCode>sys_dic_pub_classify</tableCode>
+		<generator>assigned</generator>
+		<jspPath>sysDicPubClassify</jspPath>
+		<nameSpace>infrastructure</nameSpace>
+		<urlActionName>se</urlActionName>
+
+		<columns>
+			<dburl>jdbc:mysql://localhost:3306/thd?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</dburl>
+			<usrname>root</usrname>
+			<usrpwd>123456</usrpwd>
+			<dbtable>sys_dic_pub_classify</dbtable>
+			<dbtype>mysql</dbtype>
+			<schema>thd</schema>
+		</columns>
+</config>
+<config>
 		<actionPackage>com.thd.common.infrastructure.controller</actionPackage>
 		<actionName>SysDicPubController</actionName>
 		<servicePackage>com.thd.common.infrastructure.service</servicePackage>
@@ -11,9 +104,7 @@
 		<tableName>公共字典</tableName>
 		<tableCode>sys_dic_pub</tableCode>
 		<generator>uuid.hex</generator>
-		<!-- 项目模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第一级目录) -->
 		<jspPath>sysDicPub</jspPath>
-		<!-- 小模块名称     用于Controller中的访问地址,也是thymeleaf中的页面存放的文件夹主目录(classpath:template目录下的第二级目录) -->
 		<nameSpace>infrastructure</nameSpace>
 		<urlActionName>se</urlActionName>
 
@@ -26,7 +117,6 @@
 			<schema>thd</schema>
 		</columns>
 </config>
-<!-- 
 <config>
 		<actionPackage>com.thd.module.note.controller</actionPackage>
 		<actionName>ModNoteController</actionName>

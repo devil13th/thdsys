@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -35,10 +36,12 @@ public class ${cfg.tableCodeForClass} implements java.io.Serializable {
 	//${col.columnDesc}
 	//${col.columnDataType}
 	<#if col.columnDataType=="date" >
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	</#if>
 	<#if col.columnDataType=="datetime" >
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	</#if>
 	@Column(name="${col.columnCode}" <#if col.columnDataType=="varchar">,length=${col.columnDataLength}</#if>)
 	private ${col.columnType} ${col.columnCodeForProperty};

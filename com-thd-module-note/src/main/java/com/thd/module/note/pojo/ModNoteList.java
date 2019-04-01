@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -19,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name="mod_note_list")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ModNoteList implements java.io.Serializable {
-	//PK  
+	//PK  主键
 	@Id
 	@GenericGenerator(name = "idGeneratorForModNoteList", strategy = "uuid.hex")  
 	@GeneratedValue(generator = "idGeneratorForModNoteList")
@@ -29,55 +30,58 @@ public class ModNoteList implements java.io.Serializable {
 	
 	
 	
-	//
+	//标题
 	//varchar
 	@Column(name="note_title" ,length=255)
 	private java.lang.String noteTitle;
 	
-	//
+	//概述
 	//varchar
 	@Column(name="note_desc" ,length=500)
 	private java.lang.String noteDesc;
 	
-	//
+	//分类
 	//varchar
 	@Column(name="note_classify" ,length=255)
 	private java.lang.String noteClassify;
 	
-	//
+	//是否删除
 	//varchar
 	@Column(name="is_delete" ,length=255)
 	private java.lang.String isDelete;
 	
-	//
+	//到期日期
 	//date
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	@Column(name="expire_date" )
 	private java.util.Date expireDate;
 	
-	//
+	//预警天数
 	//int
 	@Column(name="alarm_days" )
 	private java.lang.Integer alarmDays;
 	
-	//
+	//创建时间
 	//datetime
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	@Column(name="cre_time" )
 	private java.util.Date creTime;
 	
-	//
+	//创建人
 	//varchar
 	@Column(name="cre_user" ,length=50)
 	private java.lang.String creUser;
 	
-	//
+	//修改时间
 	//datetime
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	@Column(name="mod_time" )
 	private java.util.Date modTime;
 	
-	//
+	//修改人
 	//varchar
 	@Column(name="mod_user" ,length=50)
 	private java.lang.String modUser;
