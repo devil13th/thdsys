@@ -3,6 +3,8 @@ package com.thd.webtest.service;
 import org.apache.activemq.ActiveMQConnection;
 
 public class MQCfg {
+	//例子:https://www.cnblogs.com/zhuxiaojie/p/5564187.html
+	
 	// 发送次数
     public static int SEND_NUM = 5;
     // tcp 地址
