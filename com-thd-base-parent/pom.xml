@@ -21,6 +21,7 @@
 		<module>../com-thd-module-test</module>
 		<module>../com-thd-project-devil13th</module>
 		<module>../com-thd-project-webtest</module>
+		<module>../com-thd-project-testmq</module>
   </modules>
 	
 	
