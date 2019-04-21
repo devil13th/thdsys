@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-public class ResponseBean implements Serializable{
+public class ResponseBean<T> implements Serializable{
 	
 	
 	final static String  SUCCESS = "SUCCESS";
@@ -15,7 +15,7 @@ public class ResponseBean implements Serializable{
 	//状态码
 	private HttpStatus httpStatus = HttpStatus.OK;
 	//返回的对象
-	private Object result;
+	private T result;
 	//状态
 	private String status;
 	//错误信息 
@@ -26,12 +26,12 @@ public class ResponseBean implements Serializable{
 	private Exception e;
 	
 	
-	public ResponseEntity<ResponseBean> success(){
+	public ResponseEntity<ResponseBean<T>> success(){
 		this.setStatus(this.SUCCESS);
 		return new ResponseEntity(this,header,httpStatus);
 	}
 	
-	public ResponseEntity<ResponseBean> failure(){
+	public ResponseEntity<ResponseBean<T>> failure(){
 		this.setStatus(this.FAILURE);
 		return new ResponseEntity(this,header,httpStatus);
 	}
@@ -50,7 +50,7 @@ public class ResponseBean implements Serializable{
 		return result;
 	}
 
-	public void setResult(Object result) {
+	public void setResult(T result) {
 		this.result = result;
 	}
 
