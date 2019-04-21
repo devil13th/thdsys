@@ -45,4 +45,6 @@ public interface JdbcDao {
 	 * @see com.thd.utils.myutils.bean.QueryBean
 	 */
 	public void query(QueryBean queryBean);
+	
+	public int execute(String sql);
 }

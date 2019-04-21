@@ -60,7 +60,6 @@ public class JdbcDaoImpl implements JdbcDao{
 				System.out.println(obj);
 			}
 		}
-		
 		Map r = this.jdbcTemplate.queryForMap(ctSql,params);
 		return Integer.parseInt(r.get("ct").toString());
 	}
@@ -90,5 +89,9 @@ public class JdbcDaoImpl implements JdbcDao{
 		}
 		queryBean.setResult(l);
 		
+	};
+	
+	public int execute(String sql){
+		return this.jdbcTemplate.update(sql);
 	};
 }
