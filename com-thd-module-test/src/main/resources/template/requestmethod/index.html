@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Request Method Index </title>
+
+<script th:inline="javascript">     
+	var ctx = [[@{/}]];  
+
+		function testGetMethodByFetch(){
+		    fetch(
+		        `${ctx}requestMethod/testGet?str=123456`,
+		        {
+		         	'method':'GET',
+		         	headers:{
+			         	'Access-Control-Allow-Origin': '*',
+			            'Accept': 'application/json',
+			            'Content-Type': 'application/json'
+		         	}
+		        }
+		    ).then(function(res){
+				return res.text();
+			}).then(function(res){
+				document.getElementById("responseText").value = res;
+		    })
+		}
+		
+		
+		function testGetMethodByFetch2(){
+		    fetch(
+		        `${ctx}requestMethod/testGet1/123456abcde`,
+		        {
+		         	'method':'GET',
+		         	headers:{
+			         	'Access-Control-Allow-Origin': '*',
+			            'Accept': 'application/json',
+			            'Content-Type': 'application/json'
+		         	}
+		        }
+		    ).then(function(res){
+				return res.text();
+			}).then(function(res){
+				document.getElementById("responseText").value = res;
+		    })
+		}
+		
+		
+		function testGetMethodByFetch3(){
+		    fetch(
+		        `${ctx}requestMethod/testGet2?id=1&name=name&age=5&birthday=2018-01-01`,
+		        {
+		         	'method':'GET',
+		         	headers:{
+			         	'Access-Control-Allow-Origin': '*',
+			            'Accept': 'application/json',
+			            'Content-Type': 'application/json'
+		         	}
+		        }
+		    ).then(function(res){
+				return res.text();
+			}).then(function(res){
+				document.getElementById("responseText").value = res;
+		    })
+		}
+		
+		function testGetMethodByFetch4(){
+		    fetch(
+		        `${ctx}requestMethod/testGet3?rmb.id=1&rmb.name=name&rmb.age=5&rmb.birthday=2018-01-01`,
+		        {
+		         	'method':'GET',
+		         	headers:{
+			         	'Access-Control-Allow-Origin': '*',
+			            'Accept': 'application/json',
+			            'Content-Type': 'application/json'
+		         	}
+		        }
+		    ).then(function(res){
+				return res.text();
+			}).then(function(res){
+				document.getElementById("responseText").value = res;
+		    })
+		}
+
+
+		function testPostMethodByFetch(){
+		    fetch(
+		        `${ctx}requestMethod/testPost`,
+		        {
+		         	'method':'POST',
+		         	headers:{
+			         	'Access-Control-Allow-Origin': '*',
+			            'Accept': 'application/json',
+			            'Content-Type': 'application/json',
+		         	},
+		         	
+		         	//body 只有POST的方式才可以发送的
+		        	body:JSON.stringify({
+		        			"id":"1",
+		        			"name":"张三",
+		        			"address":"北京西城",
+		        			"age":5,
+		        			"userStatus":"1",
+		        			"birthday":"2015-01-01",
+		        			"createTime":"2015-01-01 23:59:59"
+		        	})
+		        }
+		    ).then(function(res){
+				return res.json();
+			}).then(function(json){
+				document.getElementById("responseText").value = JSON.stringify(json);
+		    })
+		}
+		
+		function testPostMethodByFetch2(){
+			let formData = new URLSearchParams();
+			formData.append('id','1');
+			formData.append('name', "王五");
+			formData.append('age', 5);
+			formData.append('birthday', '2015-01-01');
+			//formData.append('createTime', '2015-01-01 23:59:59');
+			alert(formData)
+		    fetch(
+		        `${ctx}requestMethod/testFormPost2`,
+		        {
+		         	'method':'POST',
+		         	headers:{
+			            'Accept': 'application/json',
+			            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+		         	},
+		         	 
+		         	//body 只有POST的方式才可以发送的   下面两种形式都可以
+		         	body:"id=1&name=赵六&age=5&birthday=2018-01-01"
+		         	//body:formData
+		        }
+		    ).then(function(res){
+				return res.json();
+			}).then(function(json){
+				document.getElementById("responseText").value = JSON.stringify(json);
+		    })
+		}
+		
+		function testPostMethodByFetch3(){
+			let formData = new FormData();
+			formData.append('id','1');
+			formData.append('name', "王五");
+			formData.append('age', 5);
+			formData.append('birthday', '2015-01-01');
+			//formData.append('createTime', '2015-01-01 23:59:59');
+			alert(formData)
+		    fetch(
+		        `${ctx}requestMethod/testFormPost2`,
+		        {
+		         	'method':'POST',
+		         	headers:{
+			            'Accept': 'application/json',
+			            //form-data方式提交不要设置header的Content-Type属性!!!!
+			            //"Content-Type": "multipart/form-data"
+		         	},
+		         	
+		         	//body 只有POST的方式才可以发送的
+		        	body:formData
+		        }
+		    ).then(function(res){
+				return res.json();
+			}).then(function(json){
+				document.getElementById("responseText").value = JSON.stringify(json);
+		    })
+		}
+		
+		
+		window.onload = function(){
+			document.getElementById("theForm").action = `${ctx}requestMethod/testFormPost`;
+			document.getElementById("theForm2").action = `${ctx}requestMethod/testFormPost2`;
+			document.getElementById("theForm3").action = `${ctx}requestMethod/testFormPost3`;
+			document.getElementById("theForm4").action = `${ctx}requestMethod/testFormUpload`;
+		}
+</script>
+
+</head>
+<body> 
+<h1>Request Method</h1>
+<h2>Fetch GET 以url参数形式提交请求,后端使用@RequestParam形式接收</h2>
+<input type="button" onclick="testGetMethodByFetch()" value="Fetch提交Get请求 - @RequestParam"/>
+<h2>Fetch GET 以pathVariable路径参数形式 </h2>
+<input type="button" onclick="testGetMethodByFetch2()" value="Fetch提交GET请求 - @PathVariable"/>
+<br/>
+<h2>Fetch GET 以url参数形式提交请求,后端将参数转简单对象 </h2>
+<input type="button" onclick="testGetMethodByFetch3()" value="Fetch提交GET请求1 - 后端转对象"/>
+<br/>
+<h2>Fetch GET 以url参数形式提交请求,后端将参数转复杂对象 </h2>
+<input type="button" onclick="testGetMethodByFetch4()" value="Fetch提交GET请求2 - 后端转对象"/>
+<br/>
+<h2>Fetch POST 以form data形式提交请求  URLSearchParams  </h2>
+<input type="button" onclick="testPostMethodByFetch2()" value="Fetch提交GET请求2 - 后端转对象"/>
+<br/>
+<h2>Fetch POST 以form data形式提交请求  enctype =&quot;multipart/form-data&quot; </h2>
+<input type="button" onclick="testPostMethodByFetch3()" value="Fetch提交GET请求3 - 后端转对象"/>
+<br/>
+
+<h2>Fetch POST 以requestBody形式提交请求 </h2>
+<input type="button" onclick="testPostMethodByFetch()" value="Fetch提交POST请求 - requestBody"/>
+<br/>
+<textarea id="responseText" style="width:100%;height:50px;">
+</textarea>
+
+<h2>表单Post提交,后端使用HttpServletRequest接收</h2>
+<form id="theForm" action="" method="post">
+<input type="text" name="usr" value="张三"/>
+<input type="text" name="pwd" value="123456"/>
+<input type="submit" value="FORM提交"/>
+</form>
+
+<h2>表单Post提交,后端使用@ModelAttribute接收</h2>
+<form id="theForm2" action="" method="post">
+<input type="file" name="f">
+id:<input type="text" name="id" value="1"/><br/>
+name:<input type="text" name="name" value="张三"/><br/>
+age:<input type="text" name="age" value="15"/><br/>
+birthday:<input type="text" name="birthday" value="2018-02-02"/><br/>
+createDate:<input type="text" name="createTime" value="2018-02-02 10:35:55"/><br/>
+<input type="submit" value="FORM提交"/>
+</form>
+
+
+<h2>表单Post提交,后端使用@ModelAttribute接收复杂对象</h2>
+对象1数据
+<form id="theForm3" action="" method="post" >
+id:<input type="text" name="rmb.id" value="1"/><br/>
+name:<input type="text" name="rmb.name" value="张三"/><br/>
+age:<input type="text" name="rmb.age" value="15"/><br/>
+birthday:<input type="text" name="rmb.birthday" value="2018-02-02"/><br/>
+createDate:<input type="text" name="rmb.createTime" value="2018-02-02 10:35:55"/><br/>
+对象2数据
+id:<input type="text" name="rmb2.id" value="2"/><br/>
+name:<input type="text" name="rmb2.name" value="李四"/><br/>
+age:<input type="text" name="rmb2.age" value="18"/><br/>
+birthday:<input type="text" name="rmb2.birthday" value="2020-02-02"/><br/>
+createDate:<input type="text" name="rmb2.createTime" value="2020-02-02 10:35:55"/><br/>
+<input type="submit" value="FORM提交"/>
+</form>
+
+
+
+<h2>表单Post提交,上传文件</h2>
+<form id="theForm4" action="" method="post" enctype="multipart/form-data">
+<input type="file" name="file" ><br/>
+id:<input type="text" name="id" value="1"/><br/>
+name:<input type="text" name="name" value="张三"/><br/>
+age:<input type="text" name="age" value="15"/><br/>
+birthday:<input type="text" name="birthday" value="2018-02-02"/><br/>
+createDate:<input type="text" name="createTime" value="2018-02-02 10:35:55"/><br/>
+<input type="submit" value="FORM提交"/>
+</form>
+
+</body>
+</html>
