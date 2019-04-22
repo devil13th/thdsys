@@ -24,10 +24,21 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.thd.module</groupId>
+			<artifactId>com-thd-module-test</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 		  <groupId>org.apache.activemq</groupId>
 		  <artifactId>activemq-client</artifactId>
 		  <version>5.15.0</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 	</dependencies>
 
 	<build>
