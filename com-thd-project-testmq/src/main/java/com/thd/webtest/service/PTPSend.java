@@ -43,6 +43,7 @@ public class PTPSend {
             //session从connection对象中得到，第一个参数为false表示为非事务类型；第二个参数为消息的确认类型，Session.AUTO_ACKNOWLEDGE表示消息自动确认。
             //创建一个session
             //第一个参数:是否支持事务，如果为true，则会忽略第二个参数，被jms服务器设置为SESSION_TRANSACTED
+            //第一个参数如果为true ， 发送消息后必须使用session.commit()提交事务
             //第二个参数为false时，paramB的值可为Session.AUTO_ACKNOWLEDGE，Session.CLIENT_ACKNOWLEDGE，DUPS_OK_ACKNOWLEDGE其中一个。
             //Session.AUTO_ACKNOWLEDGE为自动确认，客户端发送和接收消息不需要做额外的工作。哪怕是接收端发生异常，也会被当作正常发送成功。
             //Session.CLIENT_ACKNOWLEDGE为客户端确认。客户端接收到消息后，必须调用javax.jms.Message的acknowledge方法。jms服务器才会当作发送成功，并删除消息。
@@ -57,16 +58,22 @@ public class PTPSend {
             //DeliveryMode.NON_PERSISTENT 当activemq关闭的时候，队列里面的数据将会被清空
             producer.setDeliveryMode(DeliveryMode.PERSISTENT);
             
+            
             //创建一条消息，当然，消息的类型有很多，如文字，字节，对象等
             //可以通过session.create..方法来创建出来
 			//session.createMapMessage();
 			//session.createObjectMessage();
 			//session.createTextMessage();
             for(int i = 0 ; i < 5 ; i ++){
+            	//设置消息体
             	TextMessage textMsg = session.createTextMessage("消息" + i);
+            	//setXXXProperty 一系列方法是设置消息属性
+            	textMsg.setStringProperty("name", "消息属性值:" + i);
+            	//setJMSXXXX 一系列的方法是设置消息头信息
+            	//textMsg.setJMSPriority(2);
                 //发送一条消息
                 producer.send(textMsg);
-                
+                //session.commit();
                 System.out.println("+ 生产:" + textMsg.getText());
             }
             

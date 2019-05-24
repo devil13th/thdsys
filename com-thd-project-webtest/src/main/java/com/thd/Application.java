@@ -1,6 +1,7 @@
 package com.thd;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -9,7 +10,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -51,9 +51,17 @@ import com.thd.core.servlet.MyServlet;
 
 // ------------------  hibernate -----------------//
 //@EnableJpaRepositories
+/**
+* 我们使用通用repository时
+* 我们需要让spring在加载的时候找到我们自定义的BaseRepositoryFactoryBean的工厂，
+* 只要在入口类中加入@EnableJpaRepositories即可，代码如下
+*/
+@EnableJpaRepositories(basePackages = {"com.thd"},repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)//我们自己的工厂
+
+
 //扫描hibernate实体
-//@EntityScan(basePackages="com.thd")
-//开启扫描@Transactional   数据库事务 
+@EntityScan(basePackages="com.thd")
+//开启扫描@Transactional   数据库事务
 @EnableTransactionManagement
 
 //------------------  加载配置文件 -----------------//
@@ -68,13 +76,6 @@ import com.thd.core.servlet.MyServlet;
 //配置bean
 //@EnableConfigurationProperties({YmlCfg.class})//加载某个配置属性类并自动配置其属性的值在配置文件中，配置前缀参见BeanProperties的@ConfigurationProperties(prefix = "cfg")
 
-
-/**
- * 我们使用通用repository时
- * 我们需要让spring在加载的时候找到我们自定义的BaseRepositoryFactoryBean的工厂，
- * 只要在入口类中加入@EnableJpaRepositories即可，代码如下
- */
-@EnableJpaRepositories(basePackages = {"com.thd"},repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)//我们自己的工厂
 @Import(RedisConfig.class)
 public class Application extends SpringBootServletInitializer {
 

@@ -17,7 +17,7 @@ public class ActiveMQController extends BaseController {
     public static boolean POWER = true;
     
     
-	@RequestMapping(value="/text")
+	@RequestMapping(value="/test")
 	public ResponseEntity<ResponseBean> test(){
 		System.out.println("SUCCESS");
 		ResponseBean rb = new ResponseBean();
