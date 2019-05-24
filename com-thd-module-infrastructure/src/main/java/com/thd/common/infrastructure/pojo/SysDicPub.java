@@ -18,6 +18,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name="sys_dic_pub")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class SysDicPub implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+
+
 	//PK  字典标识
 	@Id
 	//@GenericGenerator(name = "idGeneratorForSysDicPub", strategy = "uuid.hex") 
