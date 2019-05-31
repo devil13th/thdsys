@@ -1,0 +1,112 @@
+# debug: true
+ymlcfg: 
+  projectName: devil13th sys34
+#trace=true
+# 打开actuator 所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+server: 
+  port: 8899
+  servlet: 
+    context-path: /thd
+#spring.mvc.view.prefix= /WEB-INF/pages/
+#spring.mvc.view.suffix= .jsp
+
+#logging:
+#  file: mylogs.log
+#  path: D:/deleteme/mylogs
+#  level: 
+#    root: WARN    
+      
+spring:
+  #jackson:
+    #serialization:
+      # 时间格式化格式
+      #date-format: yyyy-MM-dd 
+      # 时区设置
+      #time-zone: GMT+8
+      # 是否将日期格式转为时间戳
+      #write-dates-as-timestamps: false
+  http: 
+  encoding: 
+    charset: UTF-8
+    enabled: true
+    force: true
+  thymeleaf: 
+    cache: false
+    prefix: classpath:/template
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML
+  devtools: 
+    restart: 
+      #exclude: static/**, public/**,template/** 
+      enabled: false
+  datasource: 
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/thd?serverTimezone=UTC&charset=utf-8
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource 
+    hikari: 
+      #客户端等待连接池连接的最大毫秒数
+      connection-timeout: 20000
+      #最小空闲连接数
+      minimum-idle: 5
+      #配置最大池大小
+      maximum-pool-size: 12
+      #是允许连接在连接池中空闲的最长时间
+      idle-timeout: 300000 
+      #中连接关闭后的最长生命周期,使用中的连接永远不会退役，只有当它关闭时才会在最长生命周期后删除
+      max-lifetime: 1200000
+      #从池返回的连接的默认自动提交行为
+      autoCommit: true
+        
+  jpa: 
+    database: mysql
+    #show-sql: true
+    format-sql: true
+    hibernate: 
+      ddl-auto: update
+      format-sql: true
+      naming: 
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        # 设置数据库引擎为 innerDB 不设置默认为MyISAM
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect 
+    
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        
+
+  redis:
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis数据库索引(默认为0)
+    database: 0
+    # Redis服务器连接密码（默认为空）
+    password: 
+    timeout: 60s  # 数据库连接超时时间，2.0 中该参数的类型为Duration，这里在配置的时候需要指明单位
+    # 连接池配置，2.0中直接使用jedis或者lettuce配置连接池
+    jedis:
+      pool:
+        # 最大空闲连接数
+        max-idle: 5
+        # 最小空闲连接数
+        min-idle: 0
+        # 等待可用连接的最大时间，负数为不限制
+        max-wait:  -1s
+        # 最大活跃连接数，负数为不限制
+        max-active: -1
+hello: 
+  msg: Thirdteendevil
+  show: true
