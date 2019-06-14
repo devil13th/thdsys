@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.thd.module</groupId>
+    <artifactId>com-thd-module-teststarter</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>com.thd.base</groupId>
+        <artifactId>com-thd-base-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../com-thd-base-parent</relativePath>
+    </parent>
+    <dependencies>
+        <!-- 用到了@RequestMapping所以加入该依赖否则不用添加 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

@@ -13,6 +13,9 @@
         <dependent-module archiveName="com-thd-module-infrastructure-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-module-infrastructure/com-thd-module-infrastructure">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="com-thd-module-test-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/com-thd-module-test/com-thd-module-test">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="com-thd-project-webtest"/>
         <property name="java-output-path" value="/com-thd-project-webtest/target/classes"/>
     </wb-module>

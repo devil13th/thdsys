@@ -107,3 +107,8 @@ spring:
 hello: 
   msg: Thirdteendevil
   show: true
+
+
+mystarter:
+  welcome: hello ^_^
+  otherInfo:  this is a custom starter

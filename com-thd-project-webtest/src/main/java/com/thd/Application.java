@@ -1,4 +1,11 @@
 package com.thd;
+
+import com.thd.core.dao.BaseRepositoryFactoryBean;
+import com.thd.core.filter.ThreadPoolInitFilter;
+import com.thd.core.filter.TimeFilter;
+import com.thd.core.listener.MyListener;
+import com.thd.core.redis.RedisConfig;
+import com.thd.core.servlet.MyServlet;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -9,22 +16,17 @@ import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.thd.core.dao.BaseRepositoryFactoryBean;
-import com.thd.core.filter.ThreadPoolInitFilter;
-import com.thd.core.filter.TimeFilter;
-import com.thd.core.listener.MyListener;
-import com.thd.core.redis.RedisConfig;
-import com.thd.core.servlet.MyServlet;
-
-
-
+import java.util.Iterator;
+import java.util.Map;
 
 
 //囊括@SpringBootConfiguration @EnableAutoConfiguration  @ComponentScan   三个注释
@@ -88,7 +90,24 @@ public class Application extends SpringBootServletInitializer {
 	
 	public static void main(String[] args) {
 		//System.setProperty("spring.devtools.restart.enabled", "false");
-	    SpringApplication.run(Application.class, args);
+        ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+	    String[] names = ctx.getBeanDefinitionNames();
+
+//	    for(String name : names){
+//	        System.out.println(name);
+//        }
+        ConfigurableEnvironment env  = ctx.getEnvironment();
+        System.out.println("-------------");
+        System.out.println(env.getProperty("mystarter.welcome"));
+        System.out.println(env.getProperty("mystarter.otherInfo"));
+        System.out.println(env.getProperty("mystarter.baseInfo"));
+        System.out.println("-------------");
+        Map m = env.getSystemProperties();
+        Iterator iters = m.keySet().iterator();
+        while(iters.hasNext()){
+            Object obj = iters.next();
+            System.out.println(obj + ":" + m.get(obj.toString()));
+        }
 	}
 	
 	

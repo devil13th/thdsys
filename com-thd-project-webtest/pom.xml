@@ -46,6 +46,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>com.thd.module</groupId>
+			<artifactId>com-thd-module-teststarter</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
