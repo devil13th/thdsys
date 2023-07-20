@@ -10,7 +10,7 @@
   
   <properties>
 		<thdBaseParentVersion>0.0.1-SNAPSHOT</thdBaseParentVersion>
-		<beanutilsVersion>1.9.2</beanutilsVersion>
+		<beanutilsVersion>1.9.4</beanutilsVersion>
 		<jsonwebtokenVersion>0.6.0</jsonwebtokenVersion>
 		<auth0Version>2.2.0</auth0Version>
 	</properties>
